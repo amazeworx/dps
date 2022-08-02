@@ -3,19 +3,24 @@
   "settings": {
     "layout": {
       "contentSize": "960px",
-      "wideSize": "1280px"
+      "wideSize": "1192px"
     },
     "color": {
       "palette": [
         {
           "name": "Primary",
           "slug": "primary",
-          "color": "#0EA5E9"
+          "color": "#4D4DAB"
         },
         {
           "name": "Secondary",
           "slug": "secondary",
           "color": "#14B8A6"
+        },
+        {
+          "name": "Body",
+          "slug": "body",
+          "color": "#000000"
         },
         {
           "name": "Dark",
@@ -32,8 +37,8 @@
     "typography": {
       "fontSizes": [
         {
-          "name": "Small",
           "slug": "small",
+          "name": "Small",
           "size": "0.875rem"
         },
         {

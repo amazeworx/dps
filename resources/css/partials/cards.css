@@ -1,0 +1,10 @@
+.category-card {
+  &--image {
+    @apply transition duration-500;
+  }
+  &:hover {
+    .category-card--image {
+      @apply scale-105;
+    }
+  }
+}
