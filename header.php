@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> class="scroll-smooth">
 
 <head>
   <meta charset="<?php bloginfo('charset'); ?>">
@@ -22,7 +22,7 @@
 
     <?php get_template_part('parts/site', 'header'); ?>
 
-    <div id="content" class="site-content flex-grow">
+    <div id="content" class="site-content flex-grow pt-24">
 
       <?php do_action('dps_content_start'); ?>
 

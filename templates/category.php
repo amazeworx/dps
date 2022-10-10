@@ -10,8 +10,6 @@ get_header();
 
 $id = get_the_ID();
 $title = get_the_title($id);
-$description = get_the_content($id);
-
 $featured_image = get_the_post_thumbnail($id, 'full', array('class' => 'w-full h-full object-cover'));
 ?>
 <section>
@@ -19,34 +17,38 @@ $featured_image = get_the_post_thumbnail($id, 'full', array('class' => 'w-full h
     <?php echo $featured_image ?>
     <div class="absolute w-full bottom-0">
       <div class="container mx-auto flex">
-        <div class="w-1/2 bg-primary p-8">
+        <div class="w-1/2 bg-primary p-8 -ml-8 rounded-t-3xl">
           <h1 class="text-white text-5xl font-bold"><?php echo $title ?></h1>
         </div>
       </div>
     </div>
   </div>
 </section>
+
 <section class="py-16">
   <div class="container mx-auto">
     <div class="flex gap-x-20">
       <div class="w-3/5">
-        <div class="prose xl:prose-lg">
-          <?php echo $description ?>
-        </div>
+        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+            <div class="prose xl:prose-lg">
+              <?php the_content() ?>
+            </div>
+        <?php endwhile;
+        endif; ?>
       </div>
       <div class="w-2/5">
         <div class="mb-8">
           <h4 class="text-primary uppercase font-bold text-xl mb-4">Informasi Harga dan Pembelian</h4>
-          <a href="#" class="inline-flex gap-x-2 px-6 py-3.5 bg-primary text-white font-medium text-base leading-tight uppercase rounded shadow-md transition duration-150 ease-in-out items-center hover:shadow-lg hover:brightness-125 focus:brightness-110 focus:shadow-lg focus:ring-0 focus:outline-none active:brightness-100 active:shadow-lg">
+          <a href="#" class="inline-flex gap-x-2 px-6 py-3.5 bg-primary text-white font-medium text-base leading-tight uppercase rounded-full shadow-md transition duration-150 ease-in-out items-center hover:shadow-lg hover:brightness-125 focus:brightness-110 focus:shadow-lg focus:ring-0 focus:outline-none active:brightness-100 active:shadow-lg">
             <?php echo dps_icon(array('icon' => 'whatsapp', 'group' => 'utilities', 'size' => 20, 'class' => 'h-5 w-5')); ?>
             Chat Via Whatsapp
           </a>
         </div>
         <div class="mb-8">
-          <h4 class="text-primary uppercase font-bold text-xl mb-4">DISTRIBUTOR BRAND <?php echo $title ?></h4>
           <?php
           $brands = get_field('brands');
           if ($brands) : ?>
+            <h4 class="text-primary uppercase font-bold text-xl mb-4">DISTRIBUTOR BRAND <?php echo $title ?></h4>
             <?php foreach ($brands as $brand) :
               $permalink = get_permalink($brand->ID);
               $title = get_the_title($brand->ID);
@@ -139,11 +141,11 @@ $featured_image = get_the_post_thumbnail($id, 'full', array('class' => 'w-full h
     <div class="flex items-center">
       <div class="w-2/3">
         <h3 class="text-4xl text-primary mb-4 font-semibold">Gratis Konsultasi</h3>
-        <p class="text-lg">Punya pertanyaan seputar produk material bangunan?<br />
+        <p class="text-lg">Punya pertanyaan seputar produk partisi, plafon dan material bangunan?<br />
           Tanyakan saja kepada kami, dengan senang hati kami siap membantu Anda</p>
       </div>
       <div class="w-1/3 flex justify-center">
-        <a href="#" class="inline-flex gap-x-2 px-7 py-4 bg-primary text-white font-medium text-lg leading-tight uppercase rounded shadow-md transition duration-150 ease-in-out items-center hover:shadow-lg hover:brightness-125 focus:brightness-110 focus:shadow-lg focus:ring-0 focus:outline-none active:brightness-100 active:shadow-lg">
+        <a href="#" class="inline-flex gap-x-2 px-7 py-4 bg-primary text-white font-medium text-lg leading-tight uppercase rounded-full shadow-md transition duration-150 ease-in-out items-center hover:shadow-lg hover:brightness-125 focus:brightness-110 focus:shadow-lg focus:ring-0 focus:outline-none active:brightness-100 active:shadow-lg">
           <?php echo dps_icon(array('icon' => 'whatsapp', 'group' => 'utilities', 'size' => 20, 'class' => 'h-5 w-5')); ?>
           Hubungi Kami
         </a>

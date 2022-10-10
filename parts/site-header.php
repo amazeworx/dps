@@ -1,23 +1,23 @@
-<header>
+<header class="bg-white w-full fixed z-40">
   <div class="mx-auto container">
     <div class="xl:flex xl:justify-between xl:items-center py-6">
       <div class="flex justify-between items-end gap-x-4 xl:gap-x-16">
         <div class="logo">
-          <a href="/">
+          <a href="<?php echo site_url() ?>">
             <?php echo dps_icon(array('icon' => 'logo', 'group' => 'custom', 'size' => false, 'class' => 'h-12 w-auto')); ?>
           </a>
         </div>
 
-        <div class="hidden lg:block">
+        <nav class="hidden lg:block">
           <ul class="flex gap-x-10">
             <li class="nav-item">
-              <a href="/" class="flex gap-x-2 font-medium hover:text-primary">
+              <a href="<?php echo site_url() ?>" class="flex gap-x-2 font-medium hover:text-primary">
                 <?php echo dps_icon(array('icon' => 'home', 'group' => 'utilities', 'size' => 20, 'class' => 'h-5 w-5')); ?>
                 <span>Home</span>
               </a>
             </li>
             <li class="nav-item">
-              <a href="/profil" class="flex gap-x-2 font-medium hover:text-primary">
+              <a href="<?php echo site_url() ?>/profil" class="flex gap-x-2 font-medium hover:text-primary">
                 <?php echo dps_icon(array('icon' => 'building', 'group' => 'utilities', 'size' => 20, 'class' => 'h-5 w-5')); ?>
                 <span>Profil</span>
               </a>
@@ -28,23 +28,73 @@
                 <span>Produk</span>
                 <?php echo dps_icon(array('icon' => 'caret-down', 'group' => 'utilities', 'class' => 'h-3 w-3 mt-1.5')); ?>
               </a>
-              <ul class="dropdown-menu min-w-max absolute hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 m-0 bg-clip-padding border-none" aria-labelledby="dropDownProduct">
-                <li>
-                  <a class="dropdown-item text-base py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100" href="#">Brand</a>
-                </li>
-                <li>
-                  <a class="dropdown-item text-base py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100" href="#">Kategori</a>
-                </li>
-              </ul>
+              <div class="dropdown-menu min-w-max absolute hidden" aria-labelledby="dropDownProduct">
+                <div class="min-w-max bg-white text-base z-50 py-6 px-4 -ml-6 mt-2 list-none text-left rounded-lg shadow-xl bg-clip-padding border border-gray-100">
+                  <div class="grid grid-cols-3 gap-6">
+                    <div class="col-span-1">
+                      <h4 class="font-semibold uppercase text-gray-500 py-1.5 px-3 mb-2">BRANDS</h4>
+                      <?php
+                      $args = array(
+                        'post_type' => 'page',
+                        'post_parent' => 12,
+                        'posts_per_page' => -1,
+                        'orderby' => 'menu_order',
+                        'order'   => 'ASC',
+                      );
+                      $the_query = new WP_Query($args);
+                      if ($the_query->have_posts()) {
+                        echo '<ul>';
+                        while ($the_query->have_posts()) {
+                          $the_query->the_post();
+                          echo '<li>';
+                          echo '<a class="text-base py-1.5 px-3 rounded-lg font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-200" href="' . get_the_permalink() . '">';
+                          echo get_the_title();
+                          echo '</a>';
+                          echo '</li>';
+                        }
+                        echo '</ul>';
+                      }
+                      wp_reset_postdata();
+                      ?>
+                    </div>
+                    <div class="col-span-2">
+                      <h4 class="font-semibold uppercase text-gray-500 py-1.5 px-3 mb-2">KATEGORI</h4>
+                      <?php
+                      $args = array(
+                        'post_type' => 'page',
+                        'post_parent' => 58,
+                        'posts_per_page' => -1,
+                        'orderby' => 'menu_order',
+                        'order'   => 'ASC',
+                      );
+                      $the_query = new WP_Query($args);
+                      if ($the_query->have_posts()) {
+                        echo '<ul class="columns-2 gap-6">';
+                        while ($the_query->have_posts()) {
+                          $the_query->the_post();
+                          echo '<li>';
+                          echo '<a class="text-base py-1.5 px-3 rounded-lg font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-200" href="' . get_the_permalink() . '">';
+                          echo get_the_title();
+                          echo '</a>';
+                          echo '</li>';
+                        }
+                        echo '</ul>';
+                      }
+                      wp_reset_postdata();
+                      ?>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </li>
             <li>
-              <a href="/lokasi" class="flex gap-x-2 font-medium hover:text-primary">
+              <a href="<?php echo site_url() ?>/lokasi" class="flex gap-x-2 font-medium hover:text-primary">
                 <?php echo dps_icon(array('icon' => 'map-pin', 'group' => 'utilities', 'size' => 20, 'class' => 'h-5 w-5')); ?>
                 <span>Lokasi</span>
               </a>
             </li>
           </ul>
-        </div>
+        </nav>
 
         <div class="xl:hidden">
           <a href="#" aria-label="Toggle navigation" id="primary-menu-toggle">
@@ -62,7 +112,7 @@
 
       <div class="flex space-x-2 justify-center">
         <div>
-          <a href="#" class="inline-flex gap-x-2 px-6 py-3.5 bg-primary text-white font-medium text-base leading-tight uppercase rounded shadow-md transition duration-150 ease-in-out items-center hover:shadow-lg hover:brightness-125 focus:brightness-110 focus:shadow-lg focus:ring-0 focus:outline-none active:brightness-100 active:shadow-lg">
+          <a href="#" class="inline-flex gap-x-2 px-6 py-3.5 bg-primary text-white font-medium text-base leading-tight uppercase rounded-full shadow-md transition duration-150 ease-in-out items-center hover:shadow-lg hover:brightness-125 focus:brightness-110 focus:shadow-lg focus:ring-0 focus:outline-none active:brightness-100 active:shadow-lg">
             <?php echo dps_icon(array('icon' => 'whatsapp', 'group' => 'utilities', 'size' => 20, 'class' => 'h-5 w-5')); ?>
             Hubungi Kami
           </a>

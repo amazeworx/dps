@@ -27,7 +27,8 @@ module.exports = {
         tailpress.theme('settings.typography.fontSizes', theme)
       ),
       fontFamily: {
-        sans: ['Work Sans', 'sans-serif'],
+        //sans: ['Work Sans', 'sans-serif'],
+        //sans: ['Roboto Flex', 'sans-serif'],
       },
     },
     screens: {
