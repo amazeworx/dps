@@ -64,29 +64,62 @@ $featured_image = get_the_post_thumbnail($id, 'full', array('class' => 'w-full h
 <?php
 $title_additional_description = get_field('title_additional_description');
 $additional_description = get_field('additional_description');
+$product_catalog = get_field('product_catalog');
+$product_grid_column = get_field('product_grid_column');
+$grid_mobile = $product_grid_column['product_grid_column']['mobile'];
+$grid_tablet = $product_grid_column['product_grid_column']['tablet'];
+$grid_laptop = $product_grid_column['product_grid_column']['laptop'];
+$grid_desktop = $product_grid_column['product_grid_column']['desktop'];
+$grid_class = '';
+$container_class = '';
+if ($grid_mobile) {
+  $grid_class .= ' grid-cols-' . $grid_mobile;
+} else {
+  $grid_class .= ' grid-cols-2';
+}
+if ($grid_tablet) {
+  $grid_class .= ' md:grid-cols-' . $grid_tablet;
+  if ($grid_tablet > 2) {
+    $container_class = 'max-w-screen-lg';
+  }
+}
+if ($grid_laptop) {
+  $grid_class .= ' lg:grid-cols-' . $grid_laptop;
+  if ($grid_laptop > 2) {
+    $container_class = 'max-w-screen-lg';
+  }
+}
+if ($grid_desktop) {
+  $grid_class .= ' xl:grid-cols-' . $grid_desktop;
+  if ($grid_desktop > 2) {
+    $container_class = 'max-w-screen-lg';
+  }
+  if ($grid_desktop > 3) {
+    $container_class = '';
+  }
+}
 if ($title_additional_description || $additional_description) { ?>
   <section class="bg-slate-100">
-    <div class="container mx-auto py-20">
+    <div class="container mx-auto py-20 <?php echo $container_class ?>">
       <?php
       if ($title_additional_description) {
-        echo '<h2 class="text-primary uppercase font-bold text-xl mb-8">' .  $title_additional_description . '</h2>';
+        echo '<h2 class="text-primary uppercase font-bold text-xl mb-8 text-center">' .  $title_additional_description . '</h2>';
       }
       ?>
       <?php
       if ($additional_description) { ?>
         <div class="mb-8">
-          <div class="prose max-w-3xl">
+          <div class="prose max-w-3xl text-center mx-auto">
             <?php echo $additional_description ?>
           </div>
         </div>
       <?php } ?>
 
       <?php if (have_rows('product_catalog')) : ?>
-        <div class="flex flex-wrap -mx-4 gap-y-10">
+        <div class="grid gap-8<?php echo $grid_class ?>">
 
           <?php while (have_rows('product_catalog')) : the_row(); ?>
-
-            <div class="w-1/4 px-4">
+            <div>
               <?php
               $link = get_sub_field('link');
               $url = '';

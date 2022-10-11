@@ -168,6 +168,27 @@
             ]
         },
         {
+            "key": "field_6345a962785d5",
+            "label": "Kolom Produk",
+            "name": "product_grid_column",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_6344fbb52c173"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
             "key": "field_62e9532a8566f",
             "label": "Deskripsi Kategori Produk",
             "name": "product_category_description",
@@ -355,5 +376,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1665470521
+    "modified": 1665509783
 }
