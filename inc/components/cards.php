@@ -49,9 +49,9 @@ function product_card($atts = array())
   $image = $atts['image'];
   $title = $atts['title'];
   if ($link) {
-    echo '<a href="' . $link . '" class="block product-card rounded-3xl bg-white shadow hover:shadow-lg hover:-translate-y-1 transition duration-300">';
+    echo '<a href="' . $link . '" class="block product-card rounded-3xl bg-white max-w-[320px] mx-auto shadow hover:shadow-lg hover:-translate-y-1 transition duration-300">';
   } else {
-    echo '<div class="block product-card rounded-3xl bg-white shadow">';
+    echo '<div class="block product-card rounded-3xl bg-white max-w-[320px] mx-auto shadow">';
   }
   echo '<div class="relative aspect-video overflow-hidden rounded-t-3xl bg-slate-50">';
   if ($image) {

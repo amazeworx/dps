@@ -71,7 +71,7 @@ $grid_tablet = $product_grid_column['product_grid_column']['tablet'];
 $grid_laptop = $product_grid_column['product_grid_column']['laptop'];
 $grid_desktop = $product_grid_column['product_grid_column']['desktop'];
 $grid_class = '';
-$container_class = '';
+$container_class = 'max-w-screen-md';
 if ($grid_mobile) {
   $grid_class .= ' grid-cols-' . $grid_mobile;
 } else {
