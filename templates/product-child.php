@@ -72,8 +72,8 @@ get_header('', array('header_type' => ''));
     <div class="container mx-auto mt-8 <?php echo $container_class ?>">
       <div class="grid gap-8<?php echo $grid_class ?>">
         <?php foreach ($products_card as $card) { ?>
-          <div class="rounded-3xl bg-white shadow flex flex-col">
-            <div class="aspect-video flex flex-col items-center justify-center">
+          <div class="rounded-3xl bg-white shadow flex flex-col overflow-hidden">
+            <div class="aspect-video flex flex-col items-center justify-center overflow-hidden">
               <img src="<?php echo $card['image']['url'] ?>" alt="">
             </div>
             <div class="pt-4 pb-6 px-6 flex flex-col grow">
