@@ -1,4 +1,13 @@
-<header class="bg-white w-full fixed z-40">
+<?php
+$header_class = '';
+if ($args['header_type']) {
+  $header_type = $args['header_type'];
+  if ($header_type == 'header-shadow') {
+    $header_class = 'shadow-lg';
+  }
+}
+?>
+<header class="bg-white w-full fixed z-40 <?php echo $header_class ?>">
   <div class="mx-auto container">
     <div class="xl:flex xl:justify-between xl:items-center py-6">
       <div class="flex justify-between items-end gap-x-4 xl:gap-x-16">

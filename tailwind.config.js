@@ -10,6 +10,12 @@ module.exports = {
     './resources/js/*.js',
     './safelist.txt',
   ],
+  safelist: [
+    {
+      pattern: /grid-cols-(1|2|3|4|5|6|7|8|9|10|11|12|none)/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl'],
+    },
+  ],
   theme: {
     container: {
       padding: {

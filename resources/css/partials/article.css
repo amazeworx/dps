@@ -43,3 +43,10 @@ article > *:not(.entry-content),
     }
   }
 }
+
+.breadcrumb {
+  @apply text-white text-opacity-75;
+  a {
+    @apply underline text-white text-opacity-75 hover:underline hover:text-opacity-100;
+  }
+}

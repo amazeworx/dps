@@ -20,7 +20,13 @@
 
     <?php do_action('dps_header'); ?>
 
-    <?php get_template_part('parts/site', 'header'); ?>
+    <?php
+    $header_type = '';
+    if (isset($args['header_type'])) {
+      $header_type = $args['header_type'];
+    }
+    get_template_part('parts/site', 'header', array('header_type' => $header_type));
+    ?>
 
     <div id="content" class="site-content flex-grow pt-24">
 
