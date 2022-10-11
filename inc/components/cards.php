@@ -48,13 +48,23 @@ function product_card($atts = array())
   $link = $atts['link'];
   $image = $atts['image'];
   $title = $atts['title'];
-
-  echo '<div class="block product-card">
-    <div class="relative aspect-video overflow-hidden rounded-3xl bg-slate-50">';
+  if ($link) {
+    echo '<a href="' . $link . '" class="block product-card rounded-3xl bg-white shadow hover:shadow-lg hover:-translate-y-1 transition duration-300">';
+  } else {
+    echo '<div class="block product-card rounded-3xl bg-white shadow">';
+  }
+  echo '<div class="relative aspect-video overflow-hidden rounded-t-3xl bg-slate-50">';
   if ($image) {
     echo '<img src="' . $image . '" alt="' . $title . '" class="product-card--image w-full h-full aspect-video object-cover">';
   }
-  echo '</div>
-    <h3 class="font-semibold text-lg mt-3 leading-tight">' . $title . '</h3>
-  </div>';
+  echo '</div>';
+  echo '<div class="p-4">';
+  echo '<h3 class="font-semibold text-base text-center leading-tight">' . $title . '</h3>';
+  echo '</div>';
+
+  if ($link) {
+    echo '</a>';
+  } else {
+    echo '</div>';
+  }
 }

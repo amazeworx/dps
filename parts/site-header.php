@@ -6,6 +6,12 @@ if ($args['header_type']) {
     $header_class = 'shadow-lg';
   }
 }
+$whatsapp_number = get_field('whatsapp_number', 'option');
+$whatsapp_message = get_field('whatsapp_message', 'option');
+$whatsapp_link = 'https://wa.me/' . $whatsapp_number;
+if ($whatsapp_message) {
+  $whatsapp_link .= '?text=' . rawurlencode($whatsapp_message);
+}
 ?>
 <header class="bg-white w-full fixed z-40 <?php echo $header_class ?>">
   <div class="mx-auto container">
@@ -121,7 +127,7 @@ if ($args['header_type']) {
 
       <div class="flex space-x-2 justify-center">
         <div>
-          <a href="#" class="inline-flex gap-x-2 px-6 py-3.5 bg-primary text-white font-medium text-base leading-tight uppercase rounded-full shadow-md transition duration-150 ease-in-out items-center hover:shadow-lg hover:brightness-125 focus:brightness-110 focus:shadow-lg focus:ring-0 focus:outline-none active:brightness-100 active:shadow-lg">
+          <a href="<?php echo $whatsapp_link ?>" target="_blank" class="inline-flex gap-x-2 px-6 py-3.5 bg-primary text-white font-medium text-base leading-tight uppercase rounded-full shadow-md transition duration-150 ease-in-out items-center hover:shadow-lg hover:brightness-125 focus:brightness-110 focus:shadow-lg focus:ring-0 focus:outline-none active:brightness-100 active:shadow-lg">
             <?php echo dps_icon(array('icon' => 'whatsapp', 'group' => 'utilities', 'size' => 20, 'class' => 'h-5 w-5')); ?>
             Hubungi Kami
           </a>

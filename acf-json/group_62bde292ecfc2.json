@@ -153,8 +153,8 @@
                 {
                     "key": "field_63160c2a780a6",
                     "label": "Link",
-                    "name": "url",
-                    "type": "url",
+                    "name": "link",
+                    "type": "link",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -163,8 +163,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
-                    "placeholder": ""
+                    "return_format": "array"
                 }
             ]
         },
@@ -356,5 +355,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1665464684
+    "modified": 1665470521
 }

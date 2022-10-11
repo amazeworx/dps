@@ -88,7 +88,11 @@ if ($title_additional_description || $additional_description) { ?>
 
             <div class="w-1/4 px-4">
               <?php
-              $link = get_sub_field('url');
+              $link = get_sub_field('link');
+              $url = '';
+              if ($link) {
+                $url = $link['url'];
+              }
               $image = get_sub_field('image');
               if ($image) {
                 $image = $image['url'];
@@ -97,7 +101,7 @@ if ($title_additional_description || $additional_description) { ?>
               }
               $title = get_sub_field('title');
               echo product_card(array(
-                'link' => $link,
+                'link' => $url,
                 'image' => $image,
                 'title' => $title
               ));

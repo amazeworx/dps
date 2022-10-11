@@ -22,12 +22,18 @@ get_header('', array('header_type' => ''));
   </div>
 </div>
 
-<section class="pt-12 pb-28">
+<section class="pt-12 pb-28 bg-slate-100">
   <div class="container mx-auto prose lg:prose-lg">
     <?php echo the_content() ?>
   </div>
 
   <?php
+  $whatsapp_number = get_field('whatsapp_number', 'option');
+  $whatsapp_message = get_field('whatsapp_message', 'option');
+  $whatsapp_link = 'https://wa.me/' . $whatsapp_number;
+  if ($whatsapp_message) {
+    $whatsapp_link .= '?text=' . rawurlencode($whatsapp_message);
+  }
   $products_card = get_field('products_card');
   $product_grid_column = get_field('product_grid_column');
   $grid_mobile = $product_grid_column['mobile'];
@@ -35,6 +41,7 @@ get_header('', array('header_type' => ''));
   $grid_laptop = $product_grid_column['laptop'];
   $grid_desktop = $product_grid_column['desktop'];
   $grid_class = '';
+  $container_class = 'max-w-screen-md';
   if ($grid_mobile) {
     $grid_class .= ' grid-cols-' . $grid_mobile;
   } else {
@@ -42,29 +49,46 @@ get_header('', array('header_type' => ''));
   }
   if ($grid_tablet) {
     $grid_class .= ' md:grid-cols-' . $grid_tablet;
+    if ($grid_tablet > 2) {
+      $container_class = 'max-w-screen-lg';
+    }
   }
   if ($grid_laptop) {
     $grid_class .= ' lg:grid-cols-' . $grid_laptop;
+    if ($grid_laptop > 2) {
+      $container_class = 'max-w-screen-lg';
+    }
   }
   if ($grid_desktop) {
     $grid_class .= ' xl:grid-cols-' . $grid_desktop;
+    if ($grid_desktop > 2) {
+      $container_class = 'max-w-screen-lg';
+    }
+    if ($grid_desktop > 3) {
+      $container_class = '';
+    }
   }
   if ($products_card) { ?>
-    <div class="container mx-auto max-w-screen-md mt-8">
+    <div class="container mx-auto mt-8 <?php echo $container_class ?>">
       <div class="grid gap-8<?php echo $grid_class ?>">
         <?php foreach ($products_card as $card) { ?>
-          <div class="rounded-xl border border-solid border-slate-300 bg-white overflow-hidden flex flex-col">
-            <div class="border-b border-solid border-slate-300 aspect-video flex flex-col items-center justify-center">
+          <div class="rounded-3xl bg-white shadow flex flex-col">
+            <div class="aspect-video flex flex-col items-center justify-center">
               <img src="<?php echo $card['image']['url'] ?>" alt="">
             </div>
-            <div class="p-4 flex flex-col grow">
-              <div class="not-prose">
-                <h2 class="text-primary font-bold text-xl mb-2"><?php echo $card['title'] ?></h2>
-                <div class="text-base">
+            <div class="pt-4 pb-6 px-6 flex flex-col grow">
+              <div class="mb-8">
+                <h2 class="font-bold text-xl mb-2"><?php echo $card['title'] ?></h2>
+                <div class="text-sm text-slate-500">
                   <?php echo $card['description'] ?>
                 </div>
               </div>
-              <div class="mt-8"><a class="text-primary uppercase font-semibold hover:underline" href="#">Hubungi Kami</a></div>
+              <div class="mt-auto -ml-1">
+                <a href="<?php echo $whatsapp_link ?>" target="_blank" class="inline-flex gap-x-2 bg-slate-200 px-5 py-2.5 rounded-full font-semibold text-primary text-sm leading-tight items-center hover:bg-slate-300 focus:ring-0 focus:outline-none transition-all duration-300">
+                  <?php echo dps_icon(array('icon' => 'whatsapp', 'group' => 'utilities', 'size' => 20, 'class' => 'h-5 w-5')); ?>
+                  <span class="inline-block pt-0.5">Hubungi Kami</span>
+                </a>
+              </div>
             </div>
           </div>
         <?php } ?>

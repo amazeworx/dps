@@ -6,3 +6,6 @@ alignright
 wp-block-button
 wp-caption
 wp-caption-text
+max-w-screen-md
+max-w-screen-lg
+max-w-screen-xl
