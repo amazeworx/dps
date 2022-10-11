@@ -70,33 +70,37 @@ get_header('', array('header_type' => ''));
   }
   if ($products_card) { ?>
     <div class="container mx-auto mt-8 <?php echo $container_class ?>">
-      <div class="grid gap-8<?php echo $grid_class ?>">
-        <?php foreach ($products_card as $card) { ?>
-          <div class="rounded-3xl bg-white shadow flex flex-col">
-            <div class="aspect-video rounded-t-3xl flex flex-col items-center justify-center overflow-hidden">
-              <img src="<?php echo $card['image']['url'] ?>" alt="">
-            </div>
-            <div class="pt-4 pb-6 px-6 flex flex-col grow">
-              <div class="mb-8">
-                <h2 class="font-bold text-xl mb-2"><?php echo $card['title'] ?></h2>
-                <div class="text-sm text-slate-500">
-                  <?php echo $card['description'] ?>
+      <?php if (count($products_card) == 1) { ?>
+        <div class="mx-auto">
+        <?php } else { ?>
+          <div class="grid gap-8<?php echo $grid_class ?>">
+          <?php } ?>
+          <?php foreach ($products_card as $card) { ?>
+            <div class="rounded-3xl bg-white shadow flex flex-col max-w-[320px] mx-auto">
+              <div class="aspect-video rounded-t-3xl flex flex-col items-center justify-center overflow-hidden">
+                <img class="w-full h-auto" src="<?php echo $card['image']['url'] ?>" alt="">
+              </div>
+              <div class="pt-4 pb-6 px-6 flex flex-col grow">
+                <div class="mb-8">
+                  <h2 class="font-bold text-xl mb-2"><?php echo $card['title'] ?></h2>
+                  <div class="text-sm text-slate-500">
+                    <?php echo $card['description'] ?>
+                  </div>
+                </div>
+                <div class="mt-auto -ml-1">
+                  <a href="<?php echo $whatsapp_link ?>" target="_blank" class="inline-flex gap-x-2 bg-slate-200 px-5 py-2.5 rounded-full font-semibold text-primary text-sm leading-tight items-center hover:bg-slate-300 focus:ring-0 focus:outline-none transition-all duration-300">
+                    <?php echo dps_icon(array('icon' => 'whatsapp', 'group' => 'utilities', 'size' => 20, 'class' => 'h-5 w-5')); ?>
+                    <span class="inline-block pt-0.5">Hubungi Kami</span>
+                  </a>
                 </div>
               </div>
-              <div class="mt-auto -ml-1">
-                <a href="<?php echo $whatsapp_link ?>" target="_blank" class="inline-flex gap-x-2 bg-slate-200 px-5 py-2.5 rounded-full font-semibold text-primary text-sm leading-tight items-center hover:bg-slate-300 focus:ring-0 focus:outline-none transition-all duration-300">
-                  <?php echo dps_icon(array('icon' => 'whatsapp', 'group' => 'utilities', 'size' => 20, 'class' => 'h-5 w-5')); ?>
-                  <span class="inline-block pt-0.5">Hubungi Kami</span>
-                </a>
-              </div>
             </div>
+          <?php } ?>
           </div>
-        <?php } ?>
-      </div>
-    </div>
-  <?php } ?>
+        </div>
+      <?php } ?>
 
-  <!--
+      <!--
 <section class="bg-white border-t border-solid border-slate-200">
   <div class="container mx-auto py-16">
     <div class="flex items-center">
@@ -115,5 +119,5 @@ get_header('', array('header_type' => ''));
   </div>
 </section> -->
 
-  <?php
-  get_footer();
+      <?php
+      get_footer();

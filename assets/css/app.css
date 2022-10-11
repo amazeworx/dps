@@ -2471,6 +2471,10 @@ video {
   height: 400px;
 }
 
+.h-auto {
+  height: auto;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -2557,6 +2561,10 @@ video {
   max-width: 1024px;
 }
 
+.max-w-screen-xl {
+  max-width: 1280px;
+}
+
 .max-w-sm {
   max-width: 24rem;
 }
@@ -2573,8 +2581,8 @@ video {
   max-width: 32rem;
 }
 
-.max-w-screen-xl {
-  max-width: 1280px;
+.max-w-\[320px\] {
+  max-width: 320px;
 }
 
 .flex-grow {
