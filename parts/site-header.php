@@ -103,6 +103,12 @@ if ($whatsapp_message) {
               </div>
             </li>
             <li>
+              <a href="<?php echo site_url() ?>/berita" class="flex gap-x-2 font-medium hover:text-primary">
+                <?php echo dps_icon(array('icon' => 'news', 'group' => 'utilities', 'size' => 20, 'class' => 'h-5 w-5')); ?>
+                <span>Berita</span>
+              </a>
+            </li>
+            <li>
               <a href="<?php echo site_url() ?>/lokasi" class="flex gap-x-2 font-medium hover:text-primary">
                 <?php echo dps_icon(array('icon' => 'map-pin', 'group' => 'utilities', 'size' => 20, 'class' => 'h-5 w-5')); ?>
                 <span>Lokasi</span>
