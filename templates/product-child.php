@@ -6,9 +6,21 @@
  *
  */
 get_header('', array('header_type' => ''));
+$whatsapp_number = get_field('whatsapp_number', 'option');
+$whatsapp_message = get_field('whatsapp_message', 'option');
+$whatsapp_link = 'https://wa.me/' . $whatsapp_number;
+if ($whatsapp_message) {
+  $whatsapp_link .= '?text=' . rawurlencode($whatsapp_message);
+}
+$post_thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'full');
+$show_featured_image = get_field('show_featured_image');
+$page_title_class = '';
+if ($show_featured_image) {
+  $page_title_class = 'pb-16';
+}
 ?>
 
-<div class="relative bg-black">
+<div class="relative bg-black <?php echo $page_title_class ?>">
   <div class="absolute inset-0 bg-primary bg-opacity-50 z-0"></div>
   <div class="relative z-10">
     <div class="container mx-auto max-w-screen-md py-20 text-white">
@@ -22,9 +34,22 @@ get_header('', array('header_type' => ''));
   </div>
 </div>
 
-<section class="pt-12 pb-28 bg-slate-100">
+<section class="relative z-10 pt-12 pb-28 bg-slate-100">
+  <?php if ($show_featured_image) { ?>
+    <div class="container mx-auto max-w-screen-lg mb-12 -mt-32">
+      <img src="<?php echo $post_thumbnail ?>" alt="">
+    </div>
+  <?php } ?>
   <div class="container mx-auto prose lg:prose-lg">
     <?php echo the_content() ?>
+    <?php if ($show_featured_image) { ?>
+      <div class="not-prose mt-10">
+        <a href="<?php echo $whatsapp_link ?>" class="inline-flex gap-x-2 px-7 py-4 bg-primary text-white font-medium text-base leading-tight uppercase rounded-full shadow-md transition duration-150 ease-in-out items-center hover:shadow-lg hover:brightness-125 focus:brightness-110 focus:shadow-lg focus:ring-0 focus:outline-none active:brightness-100 active:shadow-lg">
+          <?php echo dps_icon(array('icon' => 'whatsapp', 'group' => 'utilities', 'size' => 20, 'class' => 'h-5 w-5')); ?>
+          <span>Informasi Pembelian</span>
+        </a>
+      </div>
+    <?php } ?>
   </div>
 
   <?php
@@ -68,6 +93,7 @@ get_header('', array('header_type' => ''));
       $container_class = '';
     }
   }
+
   if ($products_card) { ?>
     <div class="container mx-auto mt-8 <?php echo $container_class ?>">
       <?php if (count($products_card) == 1) { ?>

@@ -3,6 +3,44 @@
     "title": "Product Child Page Settings",
     "fields": [
         {
+            "key": "field_634617a17cf86",
+            "label": "Show Featured Image",
+            "name": "show_featured_image",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_634617717cf85",
+            "label": "Detil Produk",
+            "name": "product_detail",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
             "key": "field_6344f986c79fb",
             "label": "Produk",
             "name": "products_card",
@@ -218,5 +256,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1665465873
+    "modified": 1665538329
 }

@@ -7,6 +7,12 @@
  */
 
 get_header();
+$whatsapp_number = get_field('whatsapp_number', 'option');
+$whatsapp_message = get_field('whatsapp_message', 'option');
+$whatsapp_link = 'https://wa.me/' . $whatsapp_number;
+if ($whatsapp_message) {
+  $whatsapp_link .= '?text=' . rawurlencode($whatsapp_message);
+}
 ?>
 
 <div class="absolute top-0 right-0 bg-repeat h-full -z-10 xl:w-56" style="background-image: url(<?php echo dps_asset('/images/svg/custom/pattern-dot.svg'); ?>)"></div>
@@ -133,7 +139,7 @@ get_header();
           Tanyakan saja kepada kami, dengan senang hati kami siap membantu Anda</p>
       </div>
       <div class="w-1/3 flex justify-center">
-        <a href="#" class="inline-flex gap-x-2 px-7 py-4 bg-primary text-white font-medium text-lg leading-tight uppercase rounded-full shadow-md transition duration-150 ease-in-out items-center hover:shadow-lg hover:brightness-125 focus:brightness-110 focus:shadow-lg focus:ring-0 focus:outline-none active:brightness-100 active:shadow-lg">
+        <a href="<?php echo $whatsapp_link ?>" class="inline-flex gap-x-2 px-7 py-4 bg-primary text-white font-medium text-lg leading-tight uppercase rounded-full shadow-md transition duration-150 ease-in-out items-center hover:shadow-lg hover:brightness-125 focus:brightness-110 focus:shadow-lg focus:ring-0 focus:outline-none active:brightness-100 active:shadow-lg">
           <?php echo dps_icon(array('icon' => 'whatsapp', 'group' => 'utilities', 'size' => 20, 'class' => 'h-5 w-5')); ?>
           Hubungi Kami
         </a>
