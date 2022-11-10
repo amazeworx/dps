@@ -102,12 +102,12 @@ if ($whatsapp_message) {
                 </div>
               </div>
             </li>
-            <li>
+            <!-- <li>
               <a href="<?php echo site_url() ?>/berita" class="flex gap-x-2 font-medium hover:text-primary">
                 <?php echo dps_icon(array('icon' => 'news', 'group' => 'utilities', 'size' => 20, 'class' => 'h-5 w-5')); ?>
                 <span>Berita</span>
               </a>
-            </li>
+            </li> -->
             <li>
               <a href="<?php echo site_url() ?>/lokasi" class="flex gap-x-2 font-medium hover:text-primary">
                 <?php echo dps_icon(array('icon' => 'map-pin', 'group' => 'utilities', 'size' => 20, 'class' => 'h-5 w-5')); ?>
@@ -131,8 +131,16 @@ if ($whatsapp_message) {
 
       </div>
 
-      <div class="flex space-x-2 justify-center">
-        <div>
+      <div class="flex space-x-4 justify-center items-center">
+        <div class="flex justify-center items-center gap-2">
+          <a href="https://www.instagram.com/dps.interdesign" target="_blank" class="text-slate-500 hover:text-primary">
+            <?php echo dps_icon(array('icon' => 'instagram', 'group' => 'utilities', 'size' => 20, 'class' => 'h-8 w-8')); ?>
+          </a>
+          <a href="https://www.facebook.com/dps.interdesign" target="_blank" class="text-slate-500 hover:text-primary">
+            <?php echo dps_icon(array('icon' => 'facebook', 'group' => 'utilities', 'size' => 20, 'class' => 'h-8 w-8')); ?>
+          </a>
+        </div>
+        <div class="ml-12">
           <a href="<?php echo $whatsapp_link ?>" target="_blank" class="inline-flex gap-x-2 px-6 py-3.5 bg-primary text-white font-medium text-base leading-tight uppercase rounded-full shadow-md transition duration-150 ease-in-out items-center hover:shadow-lg hover:brightness-125 focus:brightness-110 focus:shadow-lg focus:ring-0 focus:outline-none active:brightness-100 active:shadow-lg">
             <?php echo dps_icon(array('icon' => 'whatsapp', 'group' => 'utilities', 'size' => 20, 'class' => 'h-5 w-5')); ?>
             Hubungi Kami
