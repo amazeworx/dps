@@ -14,15 +14,21 @@ $logo = get_field('product_logo');
 $short_description = get_field('short_description');
 $product_category_description = get_field('product_category_description');
 $featured_image = get_the_post_thumbnail($id, 'full', array('class' => 'w-full h-full object-cover rounded-3xl'));
+$whatsapp_number = get_field('whatsapp_number', 'option');
+$whatsapp_message = get_field('whatsapp_message', 'option');
+$whatsapp_link = 'https://wa.me/' . $whatsapp_number;
+if ($whatsapp_message) {
+  $whatsapp_link .= '?text=' . rawurlencode($whatsapp_message);
+}
 ?>
 
 <section class="relative overflow-hidden">
-  <div class="relative container mx-auto flex items-center xl:mt-10 xl:mb-16">
-    <div class="w-5/12">
-      <div class="p-4 xl:py-8 xl:pr-10 xl:pl-0">
+  <div class="relative container mx-auto flex flex-wrap xl:flex-nowrap items-center xl:mt-10 xl:mb-16">
+    <div class="w-full order-2 xl:w-5/12 xl:order-1">
+      <div class="pt-4 pb-10 xl:py-8 xl:pr-10 xl:pl-0">
         <?php if ($logo) { ?>
           <div class="mb-8">
-            <img src="<?php echo $logo['url'] ?>" alt="<?php echo $logo['alt'] ?>"><span class="sr-only"><?php echo $title ?></span>
+            <img class="max-w-[256px] xl:max-w-none" src="<?php echo $logo['url'] ?>" alt="<?php echo $logo['alt'] ?>"><span class="sr-only"><?php echo $title ?></span>
           </div>
         <?php } ?>
         <h1 class="text-[0px]">
@@ -41,7 +47,7 @@ $featured_image = get_the_post_thumbnail($id, 'full', array('class' => 'w-full h
 
         <div>
           <h4 class="text-primary uppercase font-bold text-xl mb-4">Informasi Harga dan Pembelian</h4>
-          <a href="#" class="inline-flex gap-x-2 px-6 py-3.5 bg-primary text-white font-medium text-base leading-tight uppercase rounded-full shadow-md transition duration-150 ease-in-out items-center hover:shadow-lg hover:brightness-125 focus:brightness-110 focus:shadow-lg focus:ring-0 focus:outline-none active:brightness-100 active:shadow-lg">
+          <a href="<?php echo $whatsapp_link ?>" class="inline-flex gap-x-2 px-6 py-3.5 bg-primary text-white font-medium text-base leading-tight uppercase rounded-full shadow-md transition duration-150 ease-in-out items-center hover:shadow-lg hover:brightness-125 focus:brightness-110 focus:shadow-lg focus:ring-0 focus:outline-none active:brightness-100 active:shadow-lg">
             <?php echo dps_icon(array('icon' => 'whatsapp', 'group' => 'utilities', 'size' => 20, 'class' => 'h-5 w-5')); ?>
             Chat Via Whatsapp
           </a>
@@ -49,8 +55,8 @@ $featured_image = get_the_post_thumbnail($id, 'full', array('class' => 'w-full h
 
       </div>
     </div>
-    <div class="w-7/12 h-full">
-      <div class="xl:-mr-32">
+    <div class="w-full order-1 xl:w-7/12 h-full xl:order-2">
+      <div class="mb-4 xl:mb-0 xl:-mr-32">
         <?php if ($featured_image) {
           echo $featured_image;
         } ?>
@@ -116,7 +122,7 @@ if ($title_additional_description || $additional_description) { ?>
       <?php } ?>
 
       <?php if (have_rows('product_catalog')) : ?>
-        <div class="grid gap-8<?php echo $grid_class ?>">
+        <div class="grid gap-4 lg:gap-8<?php echo $grid_class ?>">
 
           <?php while (have_rows('product_catalog')) : the_row(); ?>
             <div>
@@ -148,10 +154,6 @@ if ($title_additional_description || $additional_description) { ?>
   </section>
 
 <?php } ?>
-
-
-
-
 
 <?php if (have_rows('kategori_produk')) : ?>
   <section class="bg-slate-100">
@@ -188,17 +190,16 @@ if ($title_additional_description || $additional_description) { ?>
   </section>
 <?php endif; ?>
 
-
 <section class="bg-white">
   <div class="container mx-auto py-20">
-    <div class="flex items-center">
-      <div class="w-2/3">
-        <h3 class="text-4xl text-primary mb-4 font-semibold">Gratis Konsultasi</h3>
-        <p class="text-lg">Punya pertanyaan seputar produk partisi, plafon dan material bangunan?<br />
+    <div class="flex flex-wrap lg:flex-nowrap items-center">
+      <div class="w-full lg:w-2/3">
+        <h3 class="text-3xl text-primary mb-4 font-semibold lg:text-5xl">Gratis Konsultasi</h3>
+        <p class="text-base lg:text-lg">Punya pertanyaan seputar produk partisi, plafon dan material bangunan?<br />
           Tanyakan saja kepada kami, dengan senang hati kami siap membantu Anda</p>
       </div>
-      <div class="w-1/3 flex justify-center">
-        <a href="#" class="inline-flex gap-x-2 px-7 py-4 bg-primary text-white font-medium text-lg leading-tight uppercase rounded-full shadow-md transition duration-150 ease-in-out items-center hover:shadow-lg hover:brightness-125 focus:brightness-110 focus:shadow-lg focus:ring-0 focus:outline-none active:brightness-100 active:shadow-lg">
+      <div class="w-full mt-4 lg:mt-0 lg:w-1/3 lg:flex lg:justify-center">
+        <a href="<?php echo $whatsapp_link ?>" class="inline-flex gap-x-2 px-7 py-4 bg-primary text-white font-medium text-sm lg:text-lg leading-tight uppercase rounded-full shadow-md transition duration-150 ease-in-out items-center hover:shadow-lg hover:brightness-125 focus:brightness-110 focus:shadow-lg focus:ring-0 focus:outline-none active:brightness-100 active:shadow-lg">
           <?php echo dps_icon(array('icon' => 'whatsapp', 'group' => 'utilities', 'size' => 20, 'class' => 'h-5 w-5')); ?>
           Hubungi Kami
         </a>

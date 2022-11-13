@@ -1,0 +1,188 @@
+#mobilemenuToggle {
+  @apply w-12 px-3 py-3 relative z-40 bg-white;
+  span {
+    @apply block w-full rounded h-[3px] bg-black transition-all duration-300 relative;
+    /* display: block;
+    width: 100%;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    height: 8px;
+    background: #fff;
+    transition: all 0.3s;
+    position: relative; */
+  }
+  span + span {
+    @apply mt-[5px];
+    /* margin-top: 14px; */
+  }
+
+  &.active span:nth-child(1) {
+    animation: ease 0.7s top forwards;
+  }
+
+  &.not-active span:nth-child(1) {
+    animation: ease 0.7s top-2 forwards;
+  }
+
+  &.active span:nth-child(2) {
+    animation: ease 0.7s scaled forwards;
+  }
+
+  &.not-active span:nth-child(2) {
+    animation: ease 0.7s scaled-2 forwards;
+  }
+
+  &.active span:nth-child(3) {
+    animation: ease 0.7s bottom forwards;
+  }
+
+  &.not-active span:nth-child(3) {
+    animation: ease 0.7s bottom-2 forwards;
+  }
+}
+@keyframes top {
+  0% {
+    top: 0;
+    transform: rotate(0);
+  }
+  50% {
+    top: 8px;
+    transform: rotate(0);
+  }
+  100% {
+    top: 8px;
+    transform: rotate(45deg);
+  }
+}
+@keyframes top-2 {
+  0% {
+    top: 8px;
+    transform: rotate(45deg);
+  }
+  50% {
+    top: 8px;
+    transform: rotate(0deg);
+  }
+  100% {
+    top: 0;
+    transform: rotate(0deg);
+  }
+}
+@keyframes bottom {
+  0% {
+    bottom: 0;
+    transform: rotate(0);
+  }
+  50% {
+    bottom: 8px;
+    transform: rotate(0);
+  }
+  100% {
+    bottom: 8px;
+    transform: rotate(135deg);
+  }
+}
+@keyframes bottom-2 {
+  0% {
+    bottom: 8px;
+    transform: rotate(135deg);
+  }
+  50% {
+    bottom: 8px;
+    transform: rotate(0);
+  }
+  100% {
+    bottom: 0;
+    transform: rotate(0);
+  }
+}
+@keyframes scaled {
+  50% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes scaled-2 {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+#mobilemenuDrawer {
+  @apply fixed w-72 h-screen top-0 right-0 bottom-0 shadow-none bg-white z-30 overflow-hidden translate-x-full transition-all duration-500 ease-in-out;
+  &.open {
+    @apply translate-x-0 shadow-lg;
+  }
+}
+
+#mobile-menu {
+  > ul {
+    @apply flex flex-col text-base divide-y divide-slate-200;
+    > li {
+      @apply py-3;
+      a {
+        @apply leading-6;
+      }
+      &.menu-item-has-children {
+        @apply relative transition-all duration-300;
+        > a {
+          @apply flex justify-between;
+        }
+      }
+      .submenu-toggle {
+        svg {
+          @apply transition-all duration-300;
+        }
+        &.open {
+          svg {
+            @apply rotate-180;
+          }
+        }
+      }
+      .sub-menu {
+        /* @apply pl-4 pt-0 h-0 opacity-0 transition-all duration-300; */
+        @apply pl-4 pt-2;
+        @apply flex-col text-base;
+        > li {
+          @apply py-2;
+        }
+        &.open {
+          @apply h-auto pt-2 opacity-100;
+        }
+      }
+    }
+  }
+}
+
+.header-inner {
+  @apply py-6 xl:flex xl:justify-between xl:items-center;
+}
+.logo {
+  .svg-icon {
+    @apply h-10 w-auto lg:h-12;
+  }
+}
+.headroom {
+  @apply fixed;
+  @apply will-change-transform transition-transform duration-200 ease-linear;
+}
+.headroom--pinned {
+  @apply translate-y-0;
+}
+.headroom--unpinned {
+  @apply -translate-y-full;
+}
+.headroom--not-top {
+  @apply shadow-lg;
+  .header-inner {
+    @apply py-3;
+  }
+}

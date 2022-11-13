@@ -13,13 +13,13 @@ if ($whatsapp_message) {
   $whatsapp_link .= '?text=' . rawurlencode($whatsapp_message);
 }
 ?>
-<header class="bg-white w-full fixed z-40 <?php echo $header_class ?>">
+<header class="headroom bg-white w-full z-40 <?php echo $header_class ?>">
   <div class="mx-auto container">
-    <div class="xl:flex xl:justify-between xl:items-center py-6">
+    <div class="header-inner">
       <div class="flex justify-between items-end gap-x-4 xl:gap-x-16">
         <div class="logo">
           <a href="<?php echo site_url() ?>">
-            <?php echo dps_icon(array('icon' => 'logo', 'group' => 'custom', 'size' => false, 'class' => 'h-12 w-auto')); ?>
+            <?php echo dps_icon(array('icon' => 'logo', 'group' => 'custom', 'size' => false, 'class' => '')); ?>
           </a>
         </div>
 
@@ -117,7 +117,7 @@ if ($whatsapp_message) {
           </ul>
         </nav>
 
-        <div class="xl:hidden">
+        <!-- <div class="xl:hidden">
           <a href="#" aria-label="Toggle navigation" id="primary-menu-toggle">
             <svg viewBox="0 0 20 20" class="inline-block w-6 h-6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <g stroke="none" stroke-width="1" fill="currentColor" fill-rule="evenodd">
@@ -127,11 +127,36 @@ if ($whatsapp_message) {
               </g>
             </svg>
           </a>
+        </div> -->
+
+        <button id="mobilemenuToggle" class="xl:hidden">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div id="mobilemenuDrawer" class="">
+          <div class="px-6 pt-24 pb-6 overflow-auto h-full">
+            <?php
+            wp_nav_menu(
+              array(
+                'container_id'    => 'mobile-menu',
+                'container_class' => '',
+                'menu_id'         => 'menu-mobile-menu',
+                'menu_class'      => '',
+                'theme_location'  => 'primary',
+                'li_class'        => '',
+                'fallback_cb'     => false,
+                'walker' => new Mobile_Menu_Walker(),
+              )
+            );
+            ?>
+          </div>
         </div>
 
       </div>
 
-      <div class="flex space-x-4 justify-center items-center">
+      <div class="hidden lg:flex space-x-4 justify-center items-center">
         <div class="flex justify-center items-center gap-2">
           <a href="https://www.instagram.com/dps.interdesign" target="_blank" class="text-slate-500 hover:text-primary">
             <?php echo dps_icon(array('icon' => 'instagram', 'group' => 'utilities', 'size' => 20, 'class' => 'h-8 w-8')); ?>
