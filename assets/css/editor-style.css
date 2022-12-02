@@ -2799,6 +2799,10 @@
   padding-bottom: 0.75rem;
 }
 
+.pb-12 {
+  padding-bottom: 3rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -3729,6 +3733,11 @@ body {
          column-gap: 5rem;
   }
 
+  .lg\:gap-x-32 {
+    -moz-column-gap: 8rem;
+         column-gap: 8rem;
+  }
+
   .lg\:space-x-2 > :not([hidden]) ~ :not([hidden]) {
     --tw-space-x-reverse: 0;
     margin-right: calc(0.5rem * var(--tw-space-x-reverse));
@@ -3776,6 +3785,10 @@ body {
 
   .lg\:p-6 {
     padding: 1.5rem;
+  }
+
+  .lg\:p-20 {
+    padding: 5rem;
   }
 
   .lg\:py-16 {
