@@ -15,19 +15,17 @@
       </div>
     </div>
     <div class="w-full lg:w-7/12">
-      <h4 class="text-lg font-bold mb-4">HEAD OFFICE</h4>
+      <h4 class="text-lg font-bold mb-4">OFFICE & WAREHOUSE</h4>
       <div class="flex flex-wrap gap-4 lg:space-x-8 lg:flex-nowrap">
-        <div class="w-full lg:w-1/2 flex space-x-2">
+        <div class="w-full lg:w-1/2 flex space-x-3">
           <div>
             <?php echo dps_icon(array('icon' => 'map-pin', 'group' => 'utilities', 'size' => 20, 'class' => 'h-5 w-5')); ?>
           </div>
           <div>
-            <strong>Graha InterDesign</strong><br>
-            Ruko Woodlake Blok 7 No. 10-15<br>
-            Panunggangan, Kecamatan Pinang<br>
-            Kota Tangerang 15143<br>
-            Banten, Indonesia<br>
-            Google Map
+            Jl. Baetussa’adah No.2<br />
+            Kadu Wetan, Curug Bitung<br />
+            Tangerang, 15810<br />
+            <a class="text-white underline" href="https://maps.app.goo.gl/j2z74S1AaoZDwKGP8" target="_blank">Google Map</a>
           </div>
         </div>
         <div class="w-full lg:w-1/2 flex flex-col gap-4">
@@ -44,15 +42,7 @@
               <?php echo dps_icon(array('icon' => 'phone', 'group' => 'utilities', 'size' => 20, 'class' => 'h-5 w-5')); ?>
             </div>
             <div>
-              (021) 50233122
-            </div>
-          </div>
-          <div class="flex space-x-2">
-            <div>
-              <?php echo dps_icon(array('icon' => 'fax', 'group' => 'utilities', 'size' => 20, 'class' => 'h-5 w-5')); ?>
-            </div>
-            <div>
-              (021) 50233122
+              <a class="text-white hover:underline" href="tel:+622155653468" target="_blank">(021) 55653468</a>
             </div>
           </div>
         </div>
