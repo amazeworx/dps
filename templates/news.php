@@ -47,7 +47,7 @@ $post_thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'full');
           $excerpt = wp_trim_words(get_the_excerpt(), $num_words = 30, $more = null);
         ?>
           <a href="<?php echo get_the_permalink() ?>" class="rounded-3xl bg-white shadow flex flex-col max-w-[320px] mx-auto hover:shadow-lg hover:-translate-y-1 transition duration-300">
-            <div class="aspect-video rounded-t-3xl flex flex-col items-center justify-center overflow-hidden">
+            <div class="aspect-w-16 aspect-h-9 rounded-t-3xl flex flex-col items-center justify-center overflow-hidden">
               <img class="w-full h-auto" src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full') ?>" alt="">
             </div>
             <div class="pt-4 pb-6 px-6 flex flex-col grow">

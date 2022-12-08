@@ -30,9 +30,13 @@ function category_card($atts = array())
   $alt = $atts['alt'];
   $title = $atts['title'];
 
-  echo '<a href="' . $link . '" title="' . $title . '" class="category-card relative overflow-hidden shadow-md rounded-lg w-full h-full aspect-square flex items-center justify-center transition duration-300 hover:shadow-xl hover:brightness-125 lg:shadow-lg lg:rounded-2xl lg:hover:shadow-xl">
-    <img src="' . $image . '" alt="' . $alt . '" class="category-card--image aspect-square h-full w-full object-cover absolute inset-0" />
-    <h3 class="absolute bottom-3 left-3 right-4 text-white z-10 font-semibold text-base leading-tight lg:text-lg lg:left-4 lg:right-4 lg:bottom-4">' . $title . '</h3>
+  echo '<a href="' . $link . '" title="' . $title . '" class="category-card block relative overflow-hidden shadow-md rounded-lg transition duration-300 hover:shadow-xl hover:brightness-125 lg:shadow-lg lg:rounded-2xl lg:hover:shadow-xl">
+    <div class="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg">
+    <img src="' . $image . '" alt="' . $alt . '" class="category-card--image h-full w-full object-cover" />
+    </div>
+    <div class="absolute bottom-3 left-3 right-4 lg:left-4 lg:right-4 lg:bottom-4 z-10">
+    <h3 class="text-white font-semibold text-base leading-tight lg:text-lg">' . $title . '</h3>
+    </div>
     <div class="absolute inset-0 bg-gradient-to-t from-black/75 z-0"></div>
   </a>';
 }
@@ -53,9 +57,9 @@ function product_card($atts = array())
   } else {
     echo '<div class="block product-card rounded-xl lg:rounded-3xl bg-white h-full max-w-[320px] mx-auto shadow">';
   }
-  echo '<div class="relative aspect-video overflow-hidden rounded-t-xl lg:rounded-t-3xl bg-slate-50">';
+  echo '<div class="relative aspect-w-16 aspect-h-9 overflow-hidden rounded-t-xl lg:rounded-t-3xl bg-slate-50">';
   if ($image) {
-    echo '<img src="' . $image . '" alt="' . $title . '" class="product-card--image w-full h-full aspect-video object-cover">';
+    echo '<img src="' . $image . '" alt="' . $title . '" class="product-card--image w-full h-full object-cover">';
   }
   echo '</div>';
   echo '<div class="p-4">';

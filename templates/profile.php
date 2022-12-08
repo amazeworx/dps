@@ -93,7 +93,7 @@ $featured_image = '<img class="w-full h-full object-cover" src="' . get_styleshe
         </div>
       </div>
       <div class="w-full lg:w-1/2 order-1 lg:order-2">
-        <div class="aspect-video">
+        <div class="aspect-w-16 aspect-h-9">
           <img class="w-full h-full object-cover" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/demo/pages/profil-management-team.jpg" />
         </div>
       </div>
@@ -104,7 +104,7 @@ $featured_image = '<img class="w-full h-full object-cover" src="' . get_styleshe
   <div class="">
     <div class="flex flex-wrap lg:flex-nowrap items-center">
       <div class="w-full lg:w-1/2">
-        <div class="aspect-video">
+        <div class="aspect-w-16 aspect-h-9">
           <img class="w-full h-full object-cover" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/demo/pages/profil-warehouse.jpg" />
         </div>
       </div>

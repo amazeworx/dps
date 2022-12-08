@@ -48,9 +48,13 @@ module.exports = {
       '2xl': '1440px',
     },
   },
+  corePlugins: {
+    aspectRatio: false,
+  },
   plugins: [
     tailpress.tailwind,
     require('tw-elements/dist/plugin'),
     require('@tailwindcss/typography'),
+    require('@tailwindcss/aspect-ratio'),
   ],
 };

@@ -13,28 +13,77 @@ $whatsapp_link = 'https://wa.me/' . $whatsapp_number;
 if ($whatsapp_message) {
   $whatsapp_link .= '?text=' . rawurlencode($whatsapp_message);
 }
+
+$hero_section = get_field('hero_section');
+$hero_headline = $hero_section['headline'];
+$hero_subheadline = $hero_section['subheadline'];
+$hero_button = $hero_section['button'];
+$hero_slider = $hero_section['slider']['image_slider'];
+
+if ($hero_section) {
 ?>
+  <div class="absolute top-0 right-0 bg-repeat h-full -z-10 xl:w-56" style="background-image: url(<?php echo dps_asset('/images/svg/custom/pattern-dot.svg'); ?>)"></div>
 
-<div class="absolute top-0 right-0 bg-repeat h-full -z-10 xl:w-56" style="background-image: url(<?php echo dps_asset('/images/svg/custom/pattern-dot.svg'); ?>)"></div>
-
-<section class="relative">
-  <div class="relative container mx-auto flex flex-wrap items-center pb-8 xl:pb-0 xl:min-h-[540px] xl:mt-10 xl:mb-16">
-    <div class="w-full lg:w-5/12 lg:order-1">
-      <div class="py-8 lg:p-4 xl:py-8 xl:pr-8 xl:pl-0">
-        <h1 class="font-semibold text-[32px] leading-[1.1em] tracking-tight mb-4 xl:mb-8 md:text-4xl md:max-w-screen-sm lg:text-5xl 2xl:text-[56px]">Distributor Aneka Produk Bangunan, Plafon dan Partisi</h1>
-        <div>
-          <a href="#brand" class="inline-flex gap-x-2 px-6 py-3.5 bg-primary text-white font-medium text-sm lg:text-base leading-tight uppercase rounded-full shadow-md transition duration-150 ease-in-out items-center hover:shadow-lg hover:brightness-125 focus:brightness-110 focus:shadow-lg focus:ring-0 focus:outline-none active:brightness-100 active:shadow-lg">
-            <?php echo dps_icon(array('icon' => 'checkbox-dual', 'group' => 'utilities', 'size' => 20, 'class' => 'h-5 w-5')); ?>
-            Produk Kami
-          </a>
+  <section class="relative">
+    <div class="relative container mx-auto flex flex-wrap items-center pb-8 xl:pb-0 xl:min-h-[540px] xl:mt-10 xl:mb-16">
+      <div class="w-full lg:w-5/12 lg:order-1">
+        <div class="py-8 lg:p-4 xl:py-8 xl:pr-8 xl:pl-0">
+          <?php if ($hero_headline) { ?>
+            <h1 class="font-semibold text-[32px] leading-[1.1em] tracking-tight mb-4 xl:mb-8 md:text-4xl md:max-w-screen-sm lg:text-5xl 2xl:text-[56px]"><?php echo $hero_headline ?></h1>
+          <?php } ?>
+          <?php if ($hero_button) { ?>
+            <div>
+              <a href="<?php echo $hero_button['url'] ?>" class="inline-flex gap-x-2 px-6 py-3.5 bg-primary text-white font-medium text-sm lg:text-base leading-tight uppercase rounded-full shadow-md transition duration-150 ease-in-out items-center hover:shadow-lg hover:brightness-125 focus:brightness-110 focus:shadow-lg focus:ring-0 focus:outline-none active:brightness-100 active:shadow-lg">
+                <?php echo dps_icon(array('icon' => 'checkbox-dual', 'group' => 'utilities', 'size' => 20, 'class' => 'h-5 w-5')); ?>
+                <?php echo $hero_button['title'] ?>
+              </a>
+            </div>
+          <?php } ?>
         </div>
       </div>
+      <div class="w-full lg:order-2 lg:absolute lg:top-0 lg:right-0 lg:h-full lg:w-7/12">
+        <?php
+        //preint_r($hero_slider);
+        if ($hero_slider) {
+          echo '<div id="hero-slider" class="swiper rounded-xl lg:rounded-3xl">';
+          echo '<div class="swiper-wrapper">';
+          foreach ($hero_slider as $image) {
+            echo '<div class="swiper-slide">';
+            echo '<div class="aspect-w-16 aspect-h-11">';
+            echo '<img src="' . $image['url'] . '" alt="" class="w-full h-full object-cover">';
+            echo '</div>';
+            echo '</div>';
+          }
+          echo '</div>';
+          echo '<div class="absolute bottom-2 right-2 flex gap-x-1 z-10 lg:bottom-4 lg:right-4">';
+          echo '<div class="hero-slider-btn--prev bg-white text-black rounded-full p-1 lg:p-2 shadow hover:bg-primary hover:text-white transition duration-200">';
+          echo dps_icon(array('icon' => 'arrow-right', 'group' => 'utilities', 'size' => 20, 'class' => 'h-5 w-5 rotate-180'));
+          echo '</div>';
+          echo '<div class="hero-slider-btn--next bg-white text-black rounded-full p-1 lg:p-2 shadow hover:bg-primary hover:text-white transition duration-200">';
+          echo dps_icon(array('icon' => 'arrow-right', 'group' => 'utilities', 'size' => 20, 'class' => 'h-5 w-5'));
+          echo '</div>';
+          echo '</div>';
+          echo '</div>';
+        }
+        ?>
+        <script>
+          const hero_slider = new Swiper('#hero-slider', {
+            loop: true,
+            autoplay: {
+              delay: 5000,
+            },
+            navigation: {
+              nextEl: '.hero-slider-btn--next',
+              prevEl: '.hero-slider-btn--prev',
+            },
+          });
+        </script>
+      </div>
     </div>
-    <div class="w-full lg:order-2 lg:absolute lg:top-0 lg:right-0 lg:h-full lg:w-7/12">
-      <img src="<?php echo dps_asset('images/demo/hero-home-01.jpg') ?>" alt="" class="w-full h-full object-cover rounded-xl lg:rounded-3xl">
-    </div>
-  </div>
-</section>
+  </section>
+<?php
+}
+?>
 
 <section class="bg-slate-50">
   <div class="container mx-auto py-10 lg:py-20">
@@ -48,7 +97,7 @@ if ($whatsapp_message) {
       <span class="inline-block bg-slate-50 relative z-10 pr-4">BRANDS</span>
       <span class="block border-b border-gray-200 w-full"></span>
     </h3>
-    <div class="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 lg:gap-5 mb-8">
+    <div class="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 lg:gap-5 mb-8 lg:mb-14">
       <?php
       $args = array(
         'post_type' => 'page',

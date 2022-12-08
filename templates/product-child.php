@@ -103,7 +103,7 @@ if ($show_featured_image) {
           <?php } ?>
           <?php foreach ($products_card as $card) { ?>
             <div class="rounded-xl xl:rounded-3xl bg-white shadow flex flex-col max-w-[320px] mx-auto">
-              <div class="aspect-video rounded-t-xl xl:rounded-t-3xl flex flex-col items-center justify-center overflow-hidden">
+              <div class="aspect-w-16 aspect-h-9 rounded-t-xl xl:rounded-t-3xl flex flex-col items-center justify-center overflow-hidden">
                 <img class="w-full h-auto" src="<?php echo $card['image']['url'] ?>" alt="">
               </div>
               <div class="px-4 pt-4 pb-6 lg:px-6 flex flex-col grow">
