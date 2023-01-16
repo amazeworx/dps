@@ -26,7 +26,7 @@ $featured_images = get_field('featured_images');
       <?php
       //preint_r($featured_images);
       if ($featured_images) {
-        echo '<div id="featured-image" class="swiper rounded-xl lg:rounded-3xl shadow-md lg:shadow-lg">';
+        echo '<div id="featured-image" class="swiper rounded-xl lg:rounded-3xl shadow-md lg:shadow-lg bg-white">';
         echo '<div class="swiper-wrapper">';
         foreach ($featured_images as $image) {
           echo '<div class="swiper-slide">';
