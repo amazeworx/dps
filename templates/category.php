@@ -70,8 +70,8 @@ $featured_images = get_field('featured_images');
   </div>
 </section>
 
-<section class="py-6 lg:py-12 lg:px-12 2xl:px-24">
-  <div class="container mx-auto">
+<section class="py-6 lg:py-12">
+  <div class="container mx-auto lg:px-20">
     <div class="flex flex-wrap lg:flex-nowrap lg:gap-x-20">
       <div class="w-full lg:w-3/5">
         <h1 class="text-primary text-2xl lg:text-4xl font-bold mb-4 lg:mb-6"><?php echo $title ?></h1>
