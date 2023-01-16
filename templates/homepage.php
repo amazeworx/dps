@@ -90,10 +90,19 @@ if ($hero_section) {
 ?>
 
 <section class="bg-slate-50">
+  <?php
+  $products_section = get_field('products_section');
+  $heading = $products_section['heading'];
+  $subheading = $products_section['subheading'];
+  ?>
   <div class="container mx-auto py-10 lg:py-20">
     <div class="text-center max-w-3xl mx-auto">
-      <h2 class="text-center font-bold text-3xl leading-tight mb-2 lg:text-4xl">Melayani penjualan grosir dan eceran</h2>
-      <p>Papan Gypsum, Sistem plafon dan partisi, Papan fiber semen, Papan silikat, Panel akustik, serta berbagai produk penunjang dan aksesoris bangunan</p>
+      <?php if ($heading) { ?>
+        <h2 class="text-center font-bold text-3xl leading-tight mb-2 lg:text-4xl"><?php echo $heading ?></h2>
+      <?php } ?>
+      <?php if ($subheading) { ?>
+        <?php echo $subheading ?>
+      <?php } ?>
     </div>
   </div>
   <div id="brand" class="container mx-auto pt-4 pb-10 scroll-m-16 lg:pb-10">
@@ -171,25 +180,43 @@ if ($hero_section) {
 </section>
 
 <section class="bg-white">
+
+  <?php
+  $about_section = get_field('about_section');
+  $heading = $about_section['heading'];
+  $description = $about_section['description'];
+  $button = $about_section['button'];
+  $image = $about_section['image'];
+  ?>
   <div class="container mx-auto py-12 lg:py-24">
     <div class="flex flex-wrap items-center lg:flex-nowrap">
       <div class="w-full lg:w-9/12">
-        <img class="shadow-lg rounded-t-xl lg:rounded-3xl lg:shadow-xl" src="<?php echo dps_asset('images/demo/home-about.jpg'); ?>" alt="">
+        <?php if ($image) { ?>
+          <img class="shadow-lg rounded-t-xl lg:rounded-3xl lg:shadow-xl" src="<?php echo $image['url'] ?>" alt="<?php echo $image['alt'] ?>">
+        <?php } else { ?>
+          <img class="shadow-lg rounded-t-xl lg:rounded-3xl lg:shadow-xl" src="<?php echo dps_asset('images/demo/home-about.jpg'); ?>" alt="">
+        <?php } ?>
       </div>
       <div class="w-full lg:w-5/12 lg:-ml-40">
         <div class="bg-primary text-white p-6 shadow-lg rounded-b-xl lg:p-16 lg:shadow-xl lg:rounded-3xl">
-          <h3 class="text-2xl font-bold mb-4 lg:text-4xl lg:mb-8">Tentang DPS Group</h3>
-          <div class="prose text-lg text-white mb-4 lg:mb-6 lg:text-xl">
-            <p>Selama lebih dari 28 tahun, DPS GROUP telah mendistribusikan beraneka produk material bangunan berkualitas serta memberikan kepuasan kepada pelanggan kami.</p>
-            <p>DPS GROUP saat ini memiliki kantor dan jaringan distribusi di kota DKI Jakarta, Surabaya, Medan, Pekanbaru, dan Batam.</p>
-          </div>
-          <a href="/profil" class="inline-flex gap-x-2 px-6 py-3.5 bg-white text-primary font-medium text-base leading-tight uppercase rounded-full shadow-md transition duration-150 ease-in-out items-center hover:shadow-lg hover:brightness-125 focus:brightness-110 focus:shadow-lg focus:ring-0 focus:outline-none active:brightness-100 active:shadow-lg">
-            Selanjutnya
-          </a>
+          <?php if ($image) { ?>
+            <h3 class="text-2xl font-bold mb-4 lg:text-4xl lg:mb-8"><?php echo $heading ?></h3>
+          <?php } ?>
+          <?php if ($description) { ?>
+            <div class="prose text-lg text-white mb-4 lg:mb-6 lg:text-xl">
+              <?php echo $description ?>
+            </div>
+          <?php } ?>
+          <?php if ($button) { ?>
+            <a href="<?php echo $button['url'] ?>" class="inline-flex gap-x-2 px-6 py-3.5 bg-white text-primary font-medium text-base leading-tight uppercase rounded-full shadow-md transition duration-150 ease-in-out items-center hover:shadow-lg hover:brightness-125 focus:brightness-110 focus:shadow-lg focus:ring-0 focus:outline-none active:brightness-100 active:shadow-lg">
+              <?php echo $button['title'] ?>
+            </a>
+          <?php } ?>
         </div>
       </div>
     </div>
   </div>
+
   <div class="container mx-auto pb-10 lg:pb-24">
     <div class="rounded-xl bg-slate-100 py-6 px-6 flex flex-wrap items-center lg:flex-nowrap lg:rounded-3xl lg:py-12 lg:px-16">
       <div class="w-full lg:w-2/3">
@@ -205,6 +232,7 @@ if ($hero_section) {
       </div>
     </div>
   </div>
+
 </section>
 
 
