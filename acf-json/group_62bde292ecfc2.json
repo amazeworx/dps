@@ -3,9 +3,27 @@
     "title": "Product Page Settings",
     "fields": [
         {
+            "key": "field_63c5524e90d38",
+            "label": "Deskripsi Produk",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
             "key": "field_62bde29813ae5",
             "label": "Logo Produk",
             "name": "product_logo",
+            "aria-label": "",
             "type": "image",
             "instructions": "",
             "required": 0,
@@ -32,6 +50,7 @@
             "key": "field_62e952e18566e",
             "label": "Deskripsi Singkat",
             "name": "short_description",
+            "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
             "required": 0,
@@ -48,9 +67,55 @@
             "delay": 0
         },
         {
+            "key": "field_63c552f490d3a",
+            "label": "Featured Images",
+            "name": "featured_images",
+            "aria-label": "",
+            "type": "gallery",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min": "",
+            "max": "",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "insert": "append",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_63c5526890d39",
+            "label": "Katalog Produk",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
             "key": "field_63160bbf7809f",
             "label": "Judul Deskripsi Tambahan",
             "name": "title_additional_description",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -70,6 +135,7 @@
             "key": "field_63160bef780a0",
             "label": "Deskripsi Tambahan",
             "name": "additional_description",
+            "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
             "required": 0,
@@ -89,6 +155,7 @@
             "key": "field_63160c2a780a3",
             "label": "Katalog Produk",
             "name": "product_catalog",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -109,6 +176,7 @@
                     "key": "field_63160c2a780a4",
                     "label": "Gambar",
                     "name": "image",
+                    "aria-label": "",
                     "type": "image",
                     "instructions": "",
                     "required": 0,
@@ -129,12 +197,14 @@
                     "max_width": "",
                     "max_height": "",
                     "max_size": "",
-                    "mime_types": ""
+                    "mime_types": "",
+                    "parent_repeater": "field_63160c2a780a3"
                 },
                 {
                     "key": "field_63160c2a780a5",
                     "label": "Judul",
                     "name": "title",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -148,12 +218,14 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_63160c2a780a3"
                 },
                 {
                     "key": "field_63160c2a780a6",
                     "label": "Link",
                     "name": "link",
+                    "aria-label": "",
                     "type": "link",
                     "instructions": "",
                     "required": 0,
@@ -163,14 +235,17 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array"
+                    "return_format": "array",
+                    "parent_repeater": "field_63160c2a780a3"
                 }
-            ]
+            ],
+            "rows_per_page": 20
         },
         {
             "key": "field_6345a962785d5",
             "label": "Kolom Produk",
             "name": "product_grid_column",
+            "aria-label": "",
             "type": "clone",
             "instructions": "",
             "required": 0,
@@ -186,169 +261,12 @@
             "display": "seamless",
             "layout": "block",
             "prefix_label": 0,
-            "prefix_name": 0
-        },
-        {
-            "key": "field_62e9532a8566f",
-            "label": "Deskripsi Kategori Produk",
-            "name": "product_category_description",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1,
-            "delay": 0
-        },
-        {
-            "key": "field_62bde2bb13ae6",
-            "label": "Kategori Produk",
-            "name": "kategori_produk",
-            "type": "repeater",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "acfe_repeater_stylised_button": 0,
-            "collapsed": "field_62bde477680b3",
-            "min": 0,
-            "max": 0,
-            "layout": "row",
-            "button_label": "Add Product",
-            "sub_fields": [
-                {
-                    "key": "field_62bde467680b2",
-                    "label": "Gambar",
-                    "name": "image",
-                    "type": "image",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "uploader": "",
-                    "acfe_thumbnail": 0,
-                    "return_format": "array",
-                    "preview_size": "medium",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": "",
-                    "library": "all"
-                },
-                {
-                    "key": "field_62bde477680b3",
-                    "label": "Judul",
-                    "name": "title",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_62bde47b680b4",
-                    "label": "Link",
-                    "name": "url",
-                    "type": "link",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array"
-                }
-            ]
-        },
-        {
-            "key": "field_62f513773ec0e",
-            "label": "Download Brosur",
-            "name": "download_brosur",
-            "type": "repeater",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "acfe_repeater_stylised_button": 0,
-            "collapsed": "field_62f513893ec0f",
-            "min": 0,
-            "max": 0,
-            "layout": "table",
-            "button_label": "Tambah Brosur",
-            "sub_fields": [
-                {
-                    "key": "field_62f513893ec0f",
-                    "label": "Judul",
-                    "name": "judul",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_62f5138f3ec10",
-                    "label": "File Brosur",
-                    "name": "file_brosur",
-                    "type": "file",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "uploader": "",
-                    "return_format": "array",
-                    "min_size": "",
-                    "max_size": "",
-                    "mime_types": "",
-                    "library": "all"
-                }
-            ]
+            "prefix_name": 0,
+            "acfe_seamless_style": 0,
+            "acfe_clone_modal": 0,
+            "acfe_clone_modal_close": 0,
+            "acfe_clone_modal_button": "",
+            "acfe_clone_modal_size": "large"
         }
     ],
     "location": [
@@ -376,5 +294,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1665509783
+    "modified": 1673876753
 }

@@ -20,6 +20,7 @@ $whatsapp_link = 'https://wa.me/' . $whatsapp_number;
 if ($whatsapp_message) {
   $whatsapp_link .= '?text=' . rawurlencode($whatsapp_message);
 }
+$featured_images = get_field('featured_images', $id);
 ?>
 
 <section class="relative overflow-hidden">
@@ -56,10 +57,47 @@ if ($whatsapp_message) {
       </div>
     </div>
     <div class="w-full order-1 xl:w-7/12 h-full xl:order-2">
-      <div class="mb-4 xl:mb-0 xl:-mr-32">
-        <?php if ($featured_image) {
-          echo $featured_image;
-        } ?>
+      <div class="mb-4 xl:mb-0 xl:-mr-24">
+        <?php
+        //preint_r($featured_images);
+        if ($featured_images) {
+          echo '<div id="hero-slider" class="swiper rounded-xl lg:rounded-3xl xl:rounded-r-none">';
+          echo '<div class="swiper-wrapper">';
+          foreach ($featured_images as $image) {
+            echo '<div class="swiper-slide">';
+            echo '<div class="aspect-w-16 aspect-h-11">';
+            echo '<img src="' . $image['url'] . '" alt="" class="w-full h-full object-cover">';
+            echo '</div>';
+            echo '</div>';
+          }
+          echo '</div>';
+          echo '<div class="absolute bottom-2 left-2 flex gap-x-1 z-10 lg:bottom-4 lg:left-4">';
+          echo '<div class="hero-slider-btn--prev bg-white text-black rounded-full p-1 lg:p-2 shadow hover:bg-primary hover:text-white transition duration-200">';
+          echo dps_icon(array('icon' => 'arrow-right', 'group' => 'utilities', 'size' => 20, 'class' => 'h-5 w-5 rotate-180'));
+          echo '</div>';
+          echo '<div class="hero-slider-btn--next bg-white text-black rounded-full p-1 lg:p-2 shadow hover:bg-primary hover:text-white transition duration-200">';
+          echo dps_icon(array('icon' => 'arrow-right', 'group' => 'utilities', 'size' => 20, 'class' => 'h-5 w-5'));
+          echo '</div>';
+          echo '</div>';
+          $loop = 'false';
+          if (count($featured_images) > 1) {
+            $loop = 'true';
+          }
+        ?>
+          <script>
+            const hero_slider = new Swiper('#hero-slider', {
+              loop: <?php echo $loop ?>,
+              autoplay: {
+                delay: 5000,
+              },
+              navigation: {
+                nextEl: '.hero-slider-btn--next',
+                prevEl: '.hero-slider-btn--prev',
+              },
+            });
+          </script>
+        <?php } ?>
+
       </div>
 
     </div>

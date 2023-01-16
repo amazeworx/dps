@@ -63,21 +63,25 @@ if ($hero_section) {
           echo dps_icon(array('icon' => 'arrow-right', 'group' => 'utilities', 'size' => 20, 'class' => 'h-5 w-5'));
           echo '</div>';
           echo '</div>';
-          echo '</div>';
-        }
+          $loop = 'false';
+          if (count($hero_slider) > 1) {
+            $loop = 'true';
+          }
         ?>
-        <script>
-          const hero_slider = new Swiper('#hero-slider', {
-            loop: true,
-            autoplay: {
-              delay: 5000,
-            },
-            navigation: {
-              nextEl: '.hero-slider-btn--next',
-              prevEl: '.hero-slider-btn--prev',
-            },
-          });
-        </script>
+          <script>
+            const hero_slider = new Swiper('#hero-slider', {
+              loop: <?php echo $loop ?>,
+              autoplay: {
+                delay: 5000,
+              },
+              navigation: {
+                nextEl: '.hero-slider-btn--next',
+                prevEl: '.hero-slider-btn--prev',
+              },
+            });
+          </script>
+        <?php } ?>
+
       </div>
     </div>
   </section>
@@ -143,10 +147,17 @@ if ($hero_section) {
 
         while ($the_query->have_posts()) {
           $the_query->the_post();
-          echo '<div class="">';
+          $thumbnail = get_field('category_thumbnail', $post->ID);
+          if ($thumbnail) {
+            $thumbnail = $thumbnail['url'];
+          } else {
+            $thumbnail = '';
+          }
+
+          echo '<div>';
           echo category_card(array(
             'link' => get_the_permalink(),
-            'image' => wp_get_attachment_url(get_post_thumbnail_id($post->ID), 'thumbnail'),
+            'image' => $thumbnail,
             'alt' => get_the_title(),
             'title' => get_the_title()
           ));
