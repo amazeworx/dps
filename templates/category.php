@@ -26,7 +26,7 @@ $featured_images = get_field('featured_images');
       <?php
       //preint_r($featured_images);
       if ($featured_images) {
-        echo '<div id="featured-image" class="swiper rounded-xl lg:rounded-3xl">';
+        echo '<div id="featured-image" class="swiper rounded-xl lg:rounded-3xl shadow-md lg:shadow-lg">';
         echo '<div class="swiper-wrapper">';
         foreach ($featured_images as $image) {
           echo '<div class="swiper-slide">';
@@ -70,7 +70,7 @@ $featured_images = get_field('featured_images');
   </div>
 </section>
 
-<section class="py-6 lg:py-12">
+<section class="py-6 lg:py-12 lg:px-12 2xl:px-24">
   <div class="container mx-auto">
     <div class="flex flex-wrap lg:flex-nowrap lg:gap-x-20">
       <div class="w-full lg:w-3/5">
@@ -120,7 +120,7 @@ $featured_images = get_field('featured_images');
 </section>
 
 <section class="bg-slate-100">
-  <div class="container mx-auto py-14">
+  <div class="container mx-auto py-14 lg:px-20">
     <h3 class="text-xl font-bold mb-4 uppercase">Kategori Produk Lainnya</h3>
     <?php
     $args = array(
@@ -133,7 +133,7 @@ $featured_images = get_field('featured_images');
     $the_query = new WP_Query($args);
     if ($the_query->have_posts()) {
 
-      echo '<div class="relative pb-10">';
+      echo '<div class="relative pb-10 lg:pb-0">';
       echo '<div id="category-slider" class="swiper pt-4 pb-6 px-3 -mx-3">';
       echo '<div class="swiper-wrapper">';
 
@@ -159,11 +159,11 @@ $featured_images = get_field('featured_images');
       echo '</div>';
       echo '</div>';
 
-      echo '<div class="absolute bottom-0 left-0 flex gap-x-1 z-10">';
-      echo '<div class="hero-slider-btn--prev bg-white text-black rounded-full p-1 lg:p-2 shadow hover:bg-primary hover:text-white transition duration-200">';
+      echo '<div class="absolute bottom-0 left-0 flex gap-x-1 z-10 lg:top-1/2 lg:bottom-auto lg:w-full">';
+      echo '<div class="hero-slider-btn--prev bg-white text-black rounded-full p-1 lg:p-2 shadow hover:bg-primary hover:text-white transition duration-200 lg:absolute lg:-left-12 lg:-translate-y-1/2">';
       echo dps_icon(array('icon' => 'arrow-right', 'group' => 'utilities', 'size' => 20, 'class' => 'h-5 w-5 rotate-180'));
       echo '</div>';
-      echo '<div class="hero-slider-btn--next bg-white text-black rounded-full p-1 lg:p-2 shadow hover:bg-primary hover:text-white transition duration-200">';
+      echo '<div class="hero-slider-btn--next bg-white text-black rounded-full p-1 lg:p-2 shadow hover:bg-primary hover:text-white transition duration-200 lg:absolute lg:-right-12 lg:-translate-y-1/2">';
       echo dps_icon(array('icon' => 'arrow-right', 'group' => 'utilities', 'size' => 20, 'class' => 'h-5 w-5'));
       echo '</div>';
       echo '</div>';
@@ -184,6 +184,10 @@ $featured_images = get_field('featured_images');
               spaceBetween: 16,
             },
             1024: {
+              slidesPerView: 5,
+              spaceBetween: 16,
+            },
+            1300: {
               slidesPerView: 6,
               spaceBetween: 16,
             },
