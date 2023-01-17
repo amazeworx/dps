@@ -2042,6 +2042,14 @@
   left: 0.5rem;
 }
 
+.left-4 {
+  left: 1rem;
+}
+
+.top-auto {
+  top: auto;
+}
+
 .z-40 {
   z-index: 40;
 }
@@ -2190,6 +2198,10 @@
 
 .mr-2 {
   margin-right: 0.5rem;
+}
+
+.ml-4 {
+  margin-left: 1rem;
 }
 
 .block {

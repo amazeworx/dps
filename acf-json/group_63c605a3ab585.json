@@ -56,7 +56,7 @@
             "default_value": "",
             "tabs": "all",
             "toolbar": "full",
-            "media_upload": 1,
+            "media_upload": 0,
             "delay": 0
         },
         {
@@ -445,7 +445,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1673925375,
+    "modified": 1673927309,
     "acfe_categories": {
         "pages": "Pages"
     }
