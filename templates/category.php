@@ -93,25 +93,51 @@ $featured_images = get_field('featured_images');
         <div class="mb-8">
           <?php
           $brands = get_field('brands');
-          if ($brands) : ?>
-            <h4 class="text-primary uppercase font-bold text-lg lg:text-xl mb-4">DISTRIBUTOR BRAND <?php echo $title ?></h4>
-            <?php foreach ($brands as $brand) :
-              $permalink = get_permalink($brand->ID);
-              $title = get_the_title($brand->ID);
-              $product_logo = get_field('product_logo', $brand->ID)['url'];
-            ?>
-              <div class="max-w-xs mb-8">
-                <?php
-                echo brand_card(array(
-                  'link' => esc_url($permalink),
-                  'logo' => $product_logo,
-                  'alt' => $title,
-                  'title' => $title
-                ));
-                ?>
-              </div>
-            <?php endforeach; ?>
-          <?php endif; ?>
+          $additional_brands = get_field('additional_brands');
+          if ($brands || $additional_brands) {
+            echo '<h4 class="text-primary uppercase font-bold text-lg lg:text-xl mb-4">DISTRIBUTOR BRAND ' . $title . '</h4>';
+          }
+          ?>
+
+          <div class="grid grid-cols-2 gap-3 lg:gap-4">
+            <?php
+            $brands = get_field('brands');
+            if ($brands) : ?>
+              <?php foreach ($brands as $brand) :
+                $permalink = get_permalink($brand->ID);
+                $title = get_the_title($brand->ID);
+                $product_logo = get_field('product_logo', $brand->ID)['url'];
+              ?>
+                <div class="max-w-xs">
+                  <?php
+                  echo brand_card(array(
+                    'link' => esc_url($permalink),
+                    'logo' => $product_logo,
+                    'alt' => $title,
+                    'title' => $title
+                  ));
+                  ?>
+                </div>
+              <?php endforeach; ?>
+            <?php endif; ?>
+            <?php
+            if ($additional_brands) { ?>
+              <?php foreach ($additional_brands as $brand) { ?>
+                <div class="max-w-xs">
+                  <?php
+                  echo brand_card(array(
+                    'link' => 'none',
+                    'logo' => $brand['brand_logo']['url'],
+                    'alt' => $brand['brand_title'],
+                    'title' => $brand['brand_title'],
+                    'padding' => 'none',
+                    'img_class' => 'w-full h-full object-cover'
+                  ));
+                  ?>
+                </div>
+              <?php } ?>
+            <?php } ?>
+          </div>
         </div>
 
       </div>

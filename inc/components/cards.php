@@ -5,15 +5,34 @@ function brand_card($atts = array())
     'link'  => '#',
     'logo' => '',
     'alt' => '',
-    'title' => ''
+    'title' => '',
+    'padding' => '',
+    'img_class' => ''
   ), $atts);
 
   $link = $atts['link'];
   $logo = $atts['logo'];
   $alt = $atts['alt'];
   $title = $atts['title'];
+  $img_class = $atts['img_class'];
+  $classes = 'py-4 px-4 lg:py-6 lg:px-8';
+  if ($atts['padding'] == 'none') {
+    $classes = '';
+  }
 
-  echo '<a href="' . $link . '" title="' . $title . '" class="shadow-md bg-white border border-solid border-slate-100 py-4 px-4 rounded-lg w-full h-full flex items-center justify-center transition duration-300 hover:shadow-lg lg:py-6 lg:px-8 lg:rounded-2xl"><img src="' . $logo . '" alt="' . $alt . '" class="max-h-12 lg:max-h-full"></a>';
+  if ($link == 'none') {
+    echo '<div class="shadow-md bg-white border border-solid border-slate-100 rounded-lg w-full h-full overflow-hidden flex items-center justify-center transition duration-300 hover:shadow-lg lg:rounded-2xl ' . $classes . '">';
+  } else {
+    echo '<a href="' . $link . '" title="' . $title . '" class="shadow-md bg-white border border-solid border-slate-100 rounded-lg w-full h-full flex items-center justify-center transition duration-300 hover:shadow-lg lg:rounded-2xl ' . $classes . '">';
+  }
+
+  echo '<img src="' . $logo . '" alt="' . $alt . '" class="max-h-12 lg:max-h-full ' . $img_class . '">';
+
+  if ($link == 'none') {
+    echo '</div>';
+  } else {
+    echo '</a>';
+  }
 }
 
 function category_card($atts = array())
