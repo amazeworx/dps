@@ -2733,6 +2733,11 @@
      object-fit: cover;
 }
 
+.object-top {
+  -o-object-position: top;
+     object-position: top;
+}
+
 .p-4 {
   padding: 1rem;
 }
@@ -3063,6 +3068,10 @@
 .antialiased {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.opacity-20 {
+  opacity: 0.2;
 }
 
 .shadow-lg {
