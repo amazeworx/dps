@@ -13,7 +13,7 @@ if ($whatsapp_message) {
   $whatsapp_link .= '?text=' . rawurlencode($whatsapp_message);
 }
 ?>
-<header class="headroom bg-white w-full z-40 <?php echo $header_class ?>">
+<header class="headroom bg-white w-full border-b border-solid border-slate-200 z-40 <?php echo $header_class ?>">
   <div class="mx-auto container">
     <div class="header-inner">
       <div class="flex justify-between items-end gap-x-4 xl:gap-x-16">

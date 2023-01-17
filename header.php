@@ -28,7 +28,7 @@
     get_template_part('parts/site', 'header', array('header_type' => $header_type));
     ?>
 
-    <div id="content" class="site-content flex-grow pt-24">
+    <div id="content" class="site-content flex-grow pt-[92px] xl:pt-[97px]">
 
       <?php do_action('dps_content_start'); ?>
 
