@@ -109,7 +109,7 @@ if ($hero_section) {
       <span class="inline-block bg-slate-50 relative z-10 pr-4">BRANDS</span>
       <span class="block border-b border-gray-200 w-full"></span>
     </h3>
-    <div class="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 lg:gap-5 mb-8 lg:mb-14">
+    <div class="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 lg:gap-5 mb-8 lg:mb-14 xl:grid-cols-5">
       <?php
       $args = array(
         'post_type' => 'page',
