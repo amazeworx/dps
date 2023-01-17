@@ -12,7 +12,9 @@ $title = get_the_title($id);
 $content = get_the_content($id);
 
 $featured_image = get_the_post_thumbnail($id, 'full', array('class' => 'w-full h-full object-cover'));
-$featured_image = '<img class="w-full h-full object-cover" src="' . get_stylesheet_directory_uri() . '/assets/images/demo/pages/location-hero.jpg">';
+if (!$featured_image) {
+  $featured_image = '<img class="w-full h-full object-cover" src="' . get_stylesheet_directory_uri() . '/assets/images/demo/pages/location-hero.jpg">';
+}
 ?>
 <section>
   <div class="h-[400px] relative">
@@ -86,7 +88,7 @@ $featured_image = '<img class="w-full h-full object-cover" src="' . get_styleshe
                     </div>
                   </div>
                 <?php } ?>
-                <?php if ($card['whatsapp']) { ?>
+                <?php if ($card['phone']) { ?>
                   <div class="flex space-x-3">
                     <div class="flex-none w-4">
                       <?php echo dps_icon(array('icon' => 'phone', 'group' => 'utilities', 'size' => 20, 'class' => 'h-4 w-4')); ?>
@@ -98,7 +100,7 @@ $featured_image = '<img class="w-full h-full object-cover" src="' . get_styleshe
                     </div>
                   </div>
                 <?php } ?>
-                <?php if ($card['whatsapp']) { ?>
+                <?php if ($card['fax']) { ?>
                   <div class="flex space-x-3">
                     <div class="flex-none w-4">
                       <?php echo dps_icon(array('icon' => 'fax', 'group' => 'utilities', 'size' => 20, 'class' => 'h-4 w-4')); ?>
