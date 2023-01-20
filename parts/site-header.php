@@ -136,33 +136,49 @@ if ($whatsapp_message) {
         </button>
 
         <div id="mobilemenuDrawer" class="">
-          <div class="px-6 pt-24 pb-6 overflow-auto h-full">
-            <?php
-            wp_nav_menu(
-              array(
-                'container_id'    => 'mobile-menu',
-                'container_class' => '',
-                'menu_id'         => 'menu-mobile-menu',
-                'menu_class'      => '',
-                'theme_location'  => 'primary',
-                'li_class'        => '',
-                'fallback_cb'     => false,
-                'walker' => new Mobile_Menu_Walker(),
-              )
-            );
-            ?>
+          <div class="px-6 pt-8 pb-6 overflow-auto h-full">
+            <div class="flex items-center gap-3">
+              <a href="https://www.tokopedia.com/atappla" target="_blank" class="-mt-1.5 mr-0.5 inline-block">
+                <?php echo dps_icon(array('icon' => 'tokopedia', 'group' => 'custom', 'size' => 28, 'class' => 'h-7 w-7')); ?>
+              </a>
+              <a href="https://www.instagram.com/dps.interdesign" target="_blank" class="inline-block text-slate-500 hover:text-primary">
+                <?php echo dps_icon(array('icon' => 'instagram', 'group' => 'custom', 'size' => 28, 'class' => 'h-7 w-7')); ?>
+              </a>
+              <a href="https://www.facebook.com/dps.interdesign" target="_blank" class="inline-block text-slate-500 hover:text-primary">
+                <?php echo dps_icon(array('icon' => 'facebook', 'group' => 'custom', 'size' => 28, 'class' => 'h-7 w-7')); ?>
+              </a>
+            </div>
+            <div class="pt-8">
+              <?php
+              wp_nav_menu(
+                array(
+                  'container_id'    => 'mobile-menu',
+                  'container_class' => '',
+                  'menu_id'         => 'menu-mobile-menu',
+                  'menu_class'      => '',
+                  'theme_location'  => 'primary',
+                  'li_class'        => '',
+                  'fallback_cb'     => false,
+                  'walker' => new Mobile_Menu_Walker(),
+                )
+              );
+              ?>
+            </div>
           </div>
         </div>
 
       </div>
 
       <div class="hidden lg:flex space-x-4 justify-center items-center">
-        <div class="flex justify-center items-center gap-2">
-          <a href="https://www.instagram.com/dps.interdesign" target="_blank" class="text-slate-500 hover:text-primary">
-            <?php echo dps_icon(array('icon' => 'instagram', 'group' => 'utilities', 'size' => 20, 'class' => 'h-8 w-8')); ?>
+        <div class="flex justify-center items-center gap-3">
+          <a href="https://www.tokopedia.com/atappla" target="_blank" class="-mt-1.5 mr-0.5 inline-block">
+            <?php echo dps_icon(array('icon' => 'tokopedia', 'group' => 'custom', 'size' => 28, 'class' => 'h-7 w-7')); ?>
           </a>
-          <a href="https://www.facebook.com/dps.interdesign" target="_blank" class="text-slate-500 hover:text-primary">
-            <?php echo dps_icon(array('icon' => 'facebook', 'group' => 'utilities', 'size' => 20, 'class' => 'h-8 w-8')); ?>
+          <a href="https://www.instagram.com/dps.interdesign" target="_blank" class="inline-block text-slate-500 hover:text-primary">
+            <?php echo dps_icon(array('icon' => 'instagram', 'group' => 'custom', 'size' => 28, 'class' => 'h-7 w-7')); ?>
+          </a>
+          <a href="https://www.facebook.com/dps.interdesign" target="_blank" class="inline-block text-slate-500 hover:text-primary">
+            <?php echo dps_icon(array('icon' => 'facebook', 'group' => 'custom', 'size' => 28, 'class' => 'h-7 w-7')); ?>
           </a>
         </div>
         <div class="ml-12">
