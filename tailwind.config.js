@@ -53,8 +53,19 @@ module.exports = {
   },
   plugins: [
     tailpress.tailwind,
-    require('tw-elements/dist/plugin'),
+    //require('tw-elements/dist/plugin'),
     require('@tailwindcss/typography'),
     require('@tailwindcss/aspect-ratio'),
+    require('daisyui'),
   ],
+  daisyui: {
+    styled: true,
+    themes: true,
+    base: true,
+    utils: true,
+    logs: true,
+    rtl: false,
+    prefix: '',
+    darkTheme: 'light',
+  },
 };

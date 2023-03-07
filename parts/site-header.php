@@ -37,14 +37,14 @@ if ($whatsapp_message) {
                 <span>Profil</span>
               </a>
             </li>
-            <li class="nav-item dropdown static">
-              <a href="#" type="button" id="dropDownProduct" data-bs-toggle="dropdown" aria-expanded="false" class="flex gap-x-2 font-medium hover:text-primary">
-                <?php echo dps_icon(array('icon' => 'checkbox-dual', 'group' => 'utilities', 'size' => 20, 'class' => 'h-5 w-5')); ?>
-                <span>Produk</span>
-                <?php echo dps_icon(array('icon' => 'caret-down', 'group' => 'utilities', 'class' => 'h-3 w-3 mt-1.5')); ?>
-              </a>
-              <div class="dropdown-menu min-w-max absolute hidden" aria-labelledby="dropDownProduct">
-                <div class="min-w-max bg-white text-base z-50 py-6 px-4 -ml-6 mt-2 list-none text-left rounded-lg shadow-xl bg-clip-padding border border-gray-100">
+            <li class="nav-item">
+              <div class="dropdown">
+                <label tabindex="0" class="flex gap-x-2 font-medium hover:text-primary cursor-pointer">
+                  <?php echo dps_icon(array('icon' => 'checkbox-dual', 'group' => 'utilities', 'size' => 20, 'class' => 'h-5 w-5')); ?>
+                  <span>Produk</span>
+                  <?php echo dps_icon(array('icon' => 'caret-down', 'group' => 'utilities', 'class' => 'h-3 w-3 mt-1.5')); ?>
+                </label>
+                <div tabindex="0" class="dropdown-content menu py-6 px-4 -ml-6 mt-2 rounded-lg shadow-xl bg-clip-padding border border-gray-100 bg-base-100 min-w-max">
                   <div class="grid grid-cols-3 gap-6">
                     <div class="col-span-1">
                       <h4 class="font-semibold uppercase text-gray-500 py-1.5 px-3 mb-2">BRANDS</h4>
