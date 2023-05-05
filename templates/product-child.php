@@ -102,7 +102,7 @@ if ($show_featured_image) {
           <div class="grid gap-4 xl:gap-8<?php echo $grid_class ?>">
           <?php } ?>
           <?php foreach ($products_card as $card) { ?>
-            <div class="rounded-xl xl:rounded-3xl bg-white shadow flex flex-col max-w-[320px] mx-auto">
+            <div class="rounded-xl xl:rounded-3xl bg-white shadow flex flex-col w-full max-w-[320px] mx-auto">
               <div class="aspect-w-16 aspect-h-9 rounded-t-xl xl:rounded-t-3xl flex flex-col items-center justify-center overflow-hidden">
                 <img class="w-full h-auto" src="<?php echo $card['image']['url'] ?>" alt="">
               </div>

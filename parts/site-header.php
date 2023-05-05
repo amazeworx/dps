@@ -102,16 +102,16 @@ if ($whatsapp_message) {
                 </div>
               </div>
             </li>
-            <!-- <li>
-              <a href="<?php echo site_url() ?>/berita" class="flex gap-x-2 font-medium hover:text-primary">
-                <?php echo dps_icon(array('icon' => 'news', 'group' => 'utilities', 'size' => 20, 'class' => 'h-5 w-5')); ?>
-                <span>Berita</span>
-              </a>
-            </li> -->
             <li>
               <a href="<?php echo site_url() ?>/lokasi" class="flex gap-x-2 font-medium hover:text-primary">
                 <?php echo dps_icon(array('icon' => 'map-pin', 'group' => 'utilities', 'size' => 20, 'class' => 'h-5 w-5')); ?>
                 <span>Lokasi</span>
+              </a>
+            </li>
+            <li>
+              <a href="<?php echo site_url() ?>/artikel" class="flex gap-x-2 font-medium hover:text-primary">
+                <?php echo dps_icon(array('icon' => 'news', 'group' => 'utilities', 'size' => 20, 'class' => 'h-5 w-5')); ?>
+                <span>Artikel</span>
               </a>
             </li>
           </ul>
@@ -181,6 +181,13 @@ if ($whatsapp_message) {
             <?php echo dps_icon(array('icon' => 'facebook', 'group' => 'custom', 'size' => 28, 'class' => 'h-7 w-7')); ?>
           </a>
         </div>
+        <?php
+        if (shortcode_exists('gallery')) {
+          echo '<div>';
+          echo do_shortcode('[language-switcher]');
+          echo '</div>';
+        }
+        ?>
         <div class="ml-12">
           <a href="<?php echo $whatsapp_link ?>" target="_blank" class="inline-flex gap-x-2 px-6 py-3.5 bg-primary text-white font-medium text-base leading-tight uppercase rounded-full shadow-md transition duration-150 ease-in-out items-center hover:shadow-lg hover:brightness-125 focus:brightness-110 focus:shadow-lg focus:ring-0 focus:outline-none active:brightness-100 active:shadow-lg">
             <?php echo dps_icon(array('icon' => 'whatsapp', 'group' => 'utilities', 'size' => 20, 'class' => 'h-5 w-5')); ?>

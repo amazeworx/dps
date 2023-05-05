@@ -16,7 +16,7 @@ $post_thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'full');
 ?>
 
 <div class="relative bg-black">
-  <div class="absolute inset-0 bg-primary bg-opacity-50 z-0"></div>
+  <div class="absolute inset-0 bg-primary bg-opacity-100 z-0"></div>
   <div class="relative z-10">
     <div class="container mx-auto max-w-screen-md py-20 text-white">
       <h1 class="text-center text-4xl font-bold"><?php echo get_the_title() ?></h1>
@@ -40,19 +40,20 @@ $post_thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'full');
   );
   $the_query = new WP_Query($args);
   if ($the_query->have_posts()) { ?>
-    <div class="container max-w-screen-lg mx-auto">
+    <div class="container max-w-screen-xl mx-auto">
       <div class="grid grid-cols-3 gap-8">
         <?php while ($the_query->have_posts()) {
           $the_query->the_post();
           $excerpt = wp_trim_words(get_the_excerpt(), $num_words = 30, $more = null);
         ?>
-          <a href="<?php echo get_the_permalink() ?>" class="rounded-3xl bg-white shadow flex flex-col max-w-[320px] mx-auto hover:shadow-lg hover:-translate-y-1 transition duration-300">
+          <a href="<?php echo get_the_permalink() ?>" class="rounded-3xl bg-white shadow flex flex-col mx-auto hover:shadow-lg hover:-translate-y-1 transition duration-300">
             <div class="aspect-w-16 aspect-h-9 rounded-t-3xl flex flex-col items-center justify-center overflow-hidden">
               <img class="w-full h-auto" src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full') ?>" alt="">
             </div>
             <div class="pt-4 pb-6 px-6 flex flex-col grow">
               <div>
-                <h2 class="font-bold text-xl mb-2"><?php echo get_the_title() ?></h2>
+                <div class="mb-2 text-slate-500 text-sm"><time datetime="<?php echo get_the_date('c'); ?>" itemprop="datePublished"><?php echo get_the_date('j F Y'); ?></time></div>
+                <h2 class="font-bold text-xl leading-tight mb-2"><?php echo get_the_title() ?></h2>
                 <div class="text-sm text-slate-500">
                   <?php echo $excerpt ?>
                 </div>

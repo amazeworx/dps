@@ -1,6 +1,5 @@
 <?php get_header(); ?>
 
-<div class="container my-8 mx-auto prose lg:prose-lg">
 
   <?php if (have_posts()) : ?>
 
@@ -15,7 +14,6 @@
 
   <?php endif; ?>
 
-</div>
 
 <?php
 get_footer();
