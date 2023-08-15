@@ -22,7 +22,6 @@ if ($whatsapp_message) {
             <?php echo dps_icon(array('icon' => 'logo', 'group' => 'custom', 'size' => false, 'class' => '')); ?>
           </a>
         </div>
-
         <nav class="hidden lg:block">
           <ul class="flex gap-x-10">
             <li class="nav-item">
@@ -117,23 +116,20 @@ if ($whatsapp_message) {
           </ul>
         </nav>
 
-        <!-- <div class="xl:hidden">
-          <a href="#" aria-label="Toggle navigation" id="primary-menu-toggle">
-            <svg viewBox="0 0 20 20" class="inline-block w-6 h-6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-              <g stroke="none" stroke-width="1" fill="currentColor" fill-rule="evenodd">
-                <g id="icon-shape">
-                  <path d="M0,3 L20,3 L20,5 L0,5 L0,3 Z M0,9 L20,9 L20,11 L0,11 L0,9 Z M0,15 L20,15 L20,17 L0,17 L0,15 Z" id="Combined-Shape"></path>
-                </g>
-              </g>
-            </svg>
-          </a>
-        </div> -->
-
-        <button id="mobilemenuToggle" class="xl:hidden">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+        <div class="xl:hidden flex gap-x-3 items-center">
+          <?php
+          if (shortcode_exists('language-switcher')) {
+            echo '<div>';
+            echo do_shortcode('[language-switcher]');
+            echo '</div>';
+          }
+          ?>
+          <button id="mobilemenuToggle" class="xl:hidden">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
 
         <div id="mobilemenuDrawer" class="">
           <div class="px-6 pt-8 pb-6 overflow-auto h-full">
@@ -182,7 +178,7 @@ if ($whatsapp_message) {
           </a>
         </div>
         <?php
-        if (shortcode_exists('gallery')) {
+        if (shortcode_exists('language-switcher')) {
           echo '<div>';
           echo do_shortcode('[language-switcher]');
           echo '</div>';
